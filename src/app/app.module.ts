@@ -6,19 +6,35 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './main/pages/login/login.component';
 import { RegisterComponent } from './main/pages/register/register.component';
 import { DashboardComponent } from './main/pages/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './main/components/navbar/navbar.component';
+import { MainWrapperComponent } from './main/components/main-wrapper/main-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent,
+    MainWrapperComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+    }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

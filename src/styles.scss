@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "FontAwesome";
+    font-style: normal;
+    src: url(assets/webfonts/fa-solid-900.eot);
+    src: url(assets/webfonts/fa-solid-900.svg),
+        url(assets/webfonts/fa-solid-900.ttf),
+        url(assets/webfonts/fa-solid-900.woff),
+        url(assets/webfonts/fa-solid-900.woff2);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container-fluid {
+    min-height: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    background-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: green;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.mt-3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.mlr-125 {
+    margin-left: 1.25em;
+    margin-right: 1.25em;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg {
+    background: url(assets/images/bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,119 @@
+/* Login Form */
+
+.login {
+    color: #000;
+    max-width: 560px;
+    border-radius: 10px;
+    border-color: #090;
+    box-shadow: 0px 5px 20px #000;
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 45px 30px;
+}
+
+.login_header {
+    font-family: Roboto;
+    color: #FFF;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 220%;
+    text-shadow: 2px 2px 8px #000;
+}
+
+.login input[type=submit] {
+    font-family: Aquilo;
+    cursor: pointer;
+    height: 40px;
+    font-weight: bold;
+    background-color: #67574f;
+    border: none;
+    box-shadow: 0px 2px 10px;
+    border-radius: 5px;
+    transition: all .2s;
+    width: 100%;
+    font-size: 110%;
+    color: #7ac5ac;
+}
+
+.login input[type=submit]:hover {
+    background-color: #030;
+    border-color: #CCC;
+    color: #fff;
+    font-size: 120%;
+}
+
+.login input[type=text],
+.login input[type=password],
+.login input[type=email] {
+    padding: 10px;
+    border: none !important;
+}
+
+.login input[type=text]:focus,
+.login input[type=password]:focus,
+.login input[type=email]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.login .label {
+    font-family: FontAwesome;
+    color: #67574f;
+    font-size: 220%;
+}
+
+.login .input {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+}
+
+.login .login_row {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .submit {
+    padding: 10px;
+}
+
+.login .forgot {
+    text-align: right;
+    padding-top: 10px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    background-color: #FFF !important;
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    box-shadow: 0 0 0 30px white inset;
+    border: 1px solid green;
+    -webkit-text-fill-color: green;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-icon {
+    background: none !important;
+    border: none !important;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.mt-10 {
+    margin-top: 120px;
+}
+
+/* End Login Form */

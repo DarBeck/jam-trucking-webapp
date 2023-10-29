@@ -1,1 +1,77 @@
-<p>login works!</p>
+<div class="container-fluid bg">
+  <div class="row">
+    <div class="col-md-12 ptb-20 mt-10">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row login_header">
+          <div class="col-12">Login</div>
+        </div>
+        <div class="row login">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group form-control">
+                  <span class="input-icon input-group-text" id="user_email">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="email"
+                    aria-describedby="user_email"
+                    placeholder="Email"
+                    aria-label="Email"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group form-control">
+                  <span class="input-icon input-group-text" id="user_pass">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    aria-describedby="user_pass"
+                    placeholder="Password"
+                    aria-label="Password"
+                    autocomplete="current-password"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-lg btn-primary mt-4">
+                    <span
+                      *ngIf="loading"
+                      class="spinner-grow spinner-grow-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="ms-1" *ngIf="loading; else submit"
+                      >VERIFYING...</span
+                    >
+                    <ng-template #submit>LOGIN</ng-template>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 forgot">
+                <a routerLink="/register">Register Here!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--End Container Div-->
