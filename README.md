@@ -1,4 +1,4 @@
-# TruckRental
+# JAM Trucking Web App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
 
