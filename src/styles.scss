@@ -17,6 +17,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #f8f8f8;
 }
 
 .container-fluid {
@@ -48,30 +49,9 @@ input:-webkit-autofill:focus {
     margin-bottom: 1rem;
 }
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 .bg {
     background: url(assets/images/bg.jpg) no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-}
-
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

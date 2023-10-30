@@ -13,6 +13,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './main/components/navbar/navbar.component';
 import { MainWrapperComponent } from './main/components/main-wrapper/main-wrapper.component';
+import { SideMenuComponent } from './main/components/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MainWrapperComponent } from './main/components/main-wrapper/main-wrappe
     DashboardComponent,
     NavbarComponent,
     MainWrapperComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,

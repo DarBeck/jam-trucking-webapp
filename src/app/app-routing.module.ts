@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './main/pages/dashboard/dashboard.component';
 import { LoginComponent } from './main/pages/login/login.component';
+import { MainWrapperComponent } from './main/components/main-wrapper/main-wrapper.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: DashboardComponent
+    component: MainWrapperComponent,
+    children: [
+      {
+        path: "",
+        component: DashboardComponent
+      }
+    ]
   },
   {
     path: "login",

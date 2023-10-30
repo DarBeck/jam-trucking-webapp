@@ -1,0 +1,17 @@
+<div
+  *ngIf="showMenu || mustShow"
+  [@inOutAnimation]
+  class="sidebar-menu" data-bs-theme="dark"
+>
+  <ul class="nav flex-column scrollable-menu">
+    <li class="divider">Menu</li>
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+  </ul>
+</div>

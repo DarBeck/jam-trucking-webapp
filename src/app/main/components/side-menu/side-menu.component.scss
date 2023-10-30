@@ -1,0 +1,84 @@
+.sidebar-menu {
+    width: 250px;
+    //height: calc(100% - 50px);
+    height: 100%;
+    position: fixed;
+    //top: 50px;
+    overflow-y: scroll;
+    z-index: 3;
+    box-shadow: 0 0 24px #22292f1a;
+    background: #f8f8f8;
+}
+
+.icon {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.icon.add {
+    margin-left: auto;
+    color: white;
+    cursor: pointer;
+}
+
+.icon.count {
+    margin-left: auto;
+    color: white;
+    //cursor: pointer;
+    background: orange;
+}
+
+.sidebar-menu>ul>li>a {
+    display: inline-flex;
+    padding: 0 20px;
+    line-height: 38px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: -webkit-fill-available;
+    align-items: center;
+}
+
+.sidebar-menu>ul>li.divider {
+    padding: 20px 20px 0;
+    color: #b0b0b0;
+    line-height: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 70%;
+    width: 250px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #0d6efd;
+}
+
+.sidebar-menu a:hover>.icon {
+    background: #007bff;
+    color: white;
+    transition: background 0.1s;
+}
+
+.icon.add:hover {
+    background: orange;
+    transition: background 0.1s;
+}
+
+.nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/*To hide scrollbar*/
+.sidebar-menu::-webkit-scrollbar {
+    display: none;
+}
+
