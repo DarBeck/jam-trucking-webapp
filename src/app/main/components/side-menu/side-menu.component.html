@@ -5,12 +5,30 @@
 >
   <ul class="nav flex-column scrollable-menu">
     <li class="divider">Menu</li>
-    <li class="nav-item active">
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
       <a class="nav-link" routerLink="/">
         <span class="icon">
           <i class="fas fa-home"></i>
         </span>
         <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/trucks" >
+        <span class="icon">
+          <i class="fas fa-truck"></i>
+        </span>
+        <span>Trucks</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/customers">
+        <span class="icon">
+          <i class="fas fa-users"></i>
+        </span>
+        <span>Customers</span>
       </a>
     </li>
   </ul>

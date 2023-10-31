@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './main/components/navbar/navbar.component';
 import { MainWrapperComponent } from './main/components/main-wrapper/main-wrapper.component';
 import { SideMenuComponent } from './main/components/side-menu/side-menu.component';
+import { TrucksComponent } from './main/pages/trucks/trucks.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SideMenuComponent } from './main/components/side-menu/side-menu.compone
     NavbarComponent,
     MainWrapperComponent,
     SideMenuComponent,
+    TrucksComponent,
   ],
   imports: [
     BrowserModule,
