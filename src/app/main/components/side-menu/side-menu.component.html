@@ -14,13 +14,32 @@
         <span>Dashboard</span>
       </a>
     </li>
+    <li class="divider">Trucks</li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/add-truck" >
+        <span class="icon">
+          <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Truck</span>
+      </a>
+    </li>
     <li class="nav-item" [routerLinkActive]="'active'"
       [routerLinkActiveOptions]="{ exact: true }">
       <a class="nav-link" routerLink="/trucks" >
         <span class="icon">
           <i class="fas fa-truck"></i>
         </span>
-        <span>Trucks</span>
+        <span>View Trucks</span>
+      </a>
+    </li>
+    <li class="divider">Customers</li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/add-customer">
+        <span class="icon">
+          <i class="fas fa-user-plus"></i>
+        </span>
+        <span>Add Customer</span>
       </a>
     </li>
     <li class="nav-item">
