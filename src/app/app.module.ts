@@ -17,6 +17,8 @@ import { SideMenuComponent } from './main/components/side-menu/side-menu.compone
 import { TrucksComponent } from './main/pages/trucks/trucks.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
+import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
+import { CustomersComponent } from './main/pages/customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
     SideMenuComponent,
     TrucksComponent,
     AddTruckComponent,
+    AddCustomerComponent,
+    CustomersComponent,
   ],
   imports: [
     BrowserModule,
