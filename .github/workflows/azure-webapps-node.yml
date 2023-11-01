@@ -51,5 +51,5 @@ jobs:
         with:
           app-name: 'jamtruckingapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B1883E796F204EEBBEF1501C03D46312 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E44D7F0201904E2384729BF778DBC321 }}
           package: .
