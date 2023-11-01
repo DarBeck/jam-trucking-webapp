@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: ''
+  apiUrl: 'https://jamtruckingapi.azurewebsites.net/api',
 };

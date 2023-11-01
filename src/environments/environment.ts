@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44309/api'
+  apiUrl: 'https://jamtruckingapi.azurewebsites.net/api',
 };
 
 /*
