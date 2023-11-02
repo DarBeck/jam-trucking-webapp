@@ -1,1 +1,55 @@
-<p>add-truck works!</p>
+<div class="row">
+  <div class="col-12">
+    <h4 class="card-title mb-3">Add Truck</h4>
+    <div class="card-body">
+      <form class="form" [formGroup]="addTruckForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="first-name">Liscense</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Liscense"
+                formControlName="liscense"
+                [ngClass]="{
+                  'is-invalid': f['liscense'].touched && f['liscense'].errors,
+                  'is-valid': f['liscense'].touched && !f['liscense'].errors
+                }"
+                aria-describedby="liscenseRequiredFeedback"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+              <button
+                type="submit"
+                [disabled]="!addTruckForm.valid || loading"
+                rippleEffect
+                class="btn btn-primary me-3"
+              >
+                <span
+                  *ngIf="loading"
+                  class="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <span class="ms-1" *ngIf="loading; else submit">
+                  Submitting...</span
+                >
+                <ng-template #submit>Submit</ng-template>
+              </button>
+              <button
+                type="reset"
+                rippleEffect
+                class="btn btn-outline-secondary"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

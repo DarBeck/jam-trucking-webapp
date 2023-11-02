@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: UntypedFormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      uid: ['', [Validators.required]],
       password: ['', Validators.required],
     });
   }
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     var credentials: LoginModel = {
-      email: this.loginForm.get('email')?.value,
+      uid: this.loginForm.get('uid')?.value,
       password: this.loginForm.get('password')?.value,
     };
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.loading = false;
 
-        if (data.Email.toLowerCase() == credentials.email.toLowerCase()) {
+        if (data.Email.toLowerCase() == credentials.uid.toLowerCase()) {
           console.log('Successful Password Verification');
 
           localStorage.setItem('auth-token', data.Phone);
