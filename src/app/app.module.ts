@@ -19,6 +19,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
 import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
 import { CustomersComponent } from './main/pages/customers/customers.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CustomersComponent } from './main/pages/customers/customers.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxDatatableModule,
+    NgChartsModule,
     ToastrModule.forRoot({
       closeButton: true,
     }),
