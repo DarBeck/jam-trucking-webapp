@@ -1,87 +1,128 @@
 <div class="row">
-    <div class="col-lg-8 mb-3">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted">Truck Overview</h6>
-                        
+  <div class="col-lg-8 mb-3">
+    <div class="row">
+      <div class="col-12">
+          <div class="card card-statistics">
+              <div class="card-body statistics-body">
+              <h6 class="card-subtitle mb-2 text-muted mb-4">Truck Overview</h6>
+            <div class="row">
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                <div class="media">
+                  <div class="avatar bg-light-primary me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-truck fa-xl"></i>
                     </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">10</h4>
+                    <p class="card-text font-small-3 mb-0">Trucks</p>
+                  </div>
                 </div>
-            </div>
-            <div class="col-12 mt-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted">Revenue By Month</h6>
-                        <div>
-                            <canvas
-                                baseChart
-                                #barChartRef
-                                height="150"
-                                [datasets]="revenueChart.datasets"
-                                [labels]="revenueChart.labels"
-                                [options]="revenueChart.options"
-                                [legend]="revenueChart.legend"
-                                [type]="'bar'"
-                            >
-                            </canvas>
-                        </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                <div class="media">
+                  <div class="avatar bg-light-info me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-users fa-xl"></i>
                     </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">25</h4>
+                    <p class="card-text font-small-3 mb-0">Customers</p>
+                  </div>
                 </div>
-            </div>
-            <div class="col-12 mt-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted">Top 5 Trucks</h6>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                <div class="media">
+                  <div class="avatar bg-light-danger me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-handshake fa-xl"></i>
                     </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">120</h4>
+                    <p class="card-text font-small-3 mb-0">Rentals</p>
+                  </div>
                 </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12">
+                <div class="media">
+                  <div class="avatar bg-light-success me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-dollar-sign fa-xl"></i>
+                    </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">$4m</h4>
+                    <p class="card-text font-small-3 mb-0">Revenue</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-
-                    </div>
-                </div>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted mb-4">Revenue By Month</h6>
+            <div>
+              <canvas
+                baseChart
+                #barChartRef
+                height="150"
+                [datasets]="revenueChart.datasets"
+                [labels]="revenueChart.labels"
+                [options]="revenueChart.options"
+                [legend]="revenueChart.legend"
+                [type]="'bar'"
+              >
+              </canvas>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3">
-                <div class="card">
-                    <div class="card-body">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Top 5 Trucks</h6>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="card-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
