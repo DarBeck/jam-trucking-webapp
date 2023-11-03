@@ -20,6 +20,7 @@ import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
 import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
 import { CustomersComponent } from './main/pages/customers/customers.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     NgxDatatableModule,
     NgChartsModule,
+    NgApexchartsModule,
     ToastrModule.forRoot({
       closeButton: true,
     }),
