@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApexChartOptions } from 'src/app/models/global';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  private $warning = '#FF9F43';
+
   barChartLabels = ['July', 'August', 'September', 'October', 'November'];
+  profitChart: Partial<ApexChartOptions>;
   revenueChart = {
     chartType: 'bar',
     datasets: [
@@ -40,9 +44,87 @@ export class DashboardComponent implements OnInit {
     legend: false,
   };
 
-  constructor() {}
+  constructor() {
+    this.profitChart = {
+      chart: {
+        height: 100,
+        type: 'area',
+        toolbar: {
+          show: false,
+        },
+        sparkline: {
+          enabled: true,
+        },
+      },
+      colors: [this.$warning],
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 2.5,
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 0.9,
+          opacityFrom: 0.7,
+          opacityTo: 0.5,
+          stops: [0, 80, 100],
+        },
+      },
+      series: [
+        {
+          name: 'Profit',
+          data: [10, 15, 8, 15, 7, 12, 8],
+        },
+      ],
+      tooltip: {
+        x: { show: false },
+      },
+    };
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.profitChart = {
+      chart: {
+        height: 100,
+        type: 'area',
+        toolbar: {
+          show: false,
+        },
+        sparkline: {
+          enabled: true,
+        },
+      },
+      colors: [this.$warning],
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 2.5,
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 0.9,
+          opacityFrom: 0.7,
+          opacityTo: 0.5,
+          stops: [0, 80, 100],
+        },
+      },
+      series: [
+        {
+          name: 'Orders',
+          data: [10, 15, 8, 15, 7, 12, 8],
+        },
+      ],
+      tooltip: {
+        x: { show: false },
+      },
+    };
+  }
 
   generateRandomColor() {
     return '#' + (Math.random().toString(16) + '000000').slice(2, 8);
