@@ -115,8 +115,35 @@
       </div>
       <div class="col-12 mb-3">
         <div class="card">
-          <div class="card-body">
-            
+            <div class="card-header d-flex flex-column align-items-start pb-0">
+              <div class="avatar bg-light-success p-2 m-0">
+                <div class="avatar-content">
+                  <i class="fas fa-dollar-sign fa-xl"></i>
+                </div>
+              </div>
+              <h2 class="font-weight-bolder mt-1">$2.3m</h2>
+              <p class="mb-0 card-subtitle">Profit</p>
+            </div>
+          <div class="card-body p-0" #orderChartoptionsRef>
+            <apx-chart
+                [series]="profitChart.series"
+                [chart]="{
+                  height: 100,
+                  width: orderChartoptionsRef.offsetWidth,
+                  type: 'area',
+                  toolbar: {
+                    show: false
+                  },
+                  sparkline: {
+                    enabled: true
+                  }
+                }"
+                [stroke]="profitChart.stroke"
+                [fill]="profitChart.fill"
+                [tooltip]="profitChart.tooltip"
+                [colors]="profitChart.colors"
+                [dataLabels]="profitChart.dataLabels"
+              ></apx-chart>
           </div>
         </div>
       </div>

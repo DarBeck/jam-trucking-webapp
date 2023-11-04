@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   private $warning = '#FF9F43';
 
   barChartLabels = ['July', 'August', 'September', 'October', 'November'];
-  profitChart: Partial<ApexChartOptions>;
+  profitChart: ApexChartOptions;
   revenueChart = {
     chartType: 'bar',
     datasets: [
@@ -86,44 +86,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profitChart = {
-      chart: {
-        height: 100,
-        type: 'area',
-        toolbar: {
-          show: false,
-        },
-        sparkline: {
-          enabled: true,
-        },
-      },
-      colors: [this.$warning],
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: 'smooth',
-        width: 2.5,
-      },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shadeIntensity: 0.9,
-          opacityFrom: 0.7,
-          opacityTo: 0.5,
-          stops: [0, 80, 100],
-        },
-      },
-      series: [
-        {
-          name: 'Orders',
-          data: [10, 15, 8, 15, 7, 12, 8],
-        },
-      ],
-      tooltip: {
-        x: { show: false },
-      },
-    };
   }
 
   generateRandomColor() {
