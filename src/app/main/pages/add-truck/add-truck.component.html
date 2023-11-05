@@ -141,7 +141,7 @@
               
             </div>
           </div>
-          <div class="col-md-6 col-12">
+          <div *ngIf="f['type'].value == 'Cargo'" class="col-md-6 col-12">
             <div class="form-group">
               <label for="wheelNum">Number of Wheels</label>
               <input
@@ -153,7 +153,7 @@
               />
             </div>
           </div>
-          <div class="col-md-6 col-12">
+          <div *ngIf="f['type'].value == 'Cargo'" class="col-md-6 col-12">
             <div class="form-group">
               <label for="fuelType">Fuel Type</label>
               <ng-select
@@ -165,7 +165,7 @@
                 </ng-select>
             </div>
           </div>
-          <div class="col-md-6 col-12">
+          <div *ngIf="f['type'].value == 'Mover'" class="col-md-6 col-12">
             <div class="form-group">
               <label for="maxHeight">Max Height</label>
               <input
@@ -174,10 +174,10 @@
                 class="form-control"
                 placeholder="Max Height"
                 formControlName="maxHeight"
-              />
+                />
             </div>
           </div>
-          <div class="col-md-6 col-12">
+          <div *ngIf="f['type'].value == 'Mover'" class="col-md-6 col-12">
             <div class="form-group">
               <label for="seatCap">Seat Capacity</label>
               <input
