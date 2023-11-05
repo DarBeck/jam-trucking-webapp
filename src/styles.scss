@@ -217,3 +217,15 @@ ng-select.ng-invalid.ng-touched.validate .ng-select-container {
 ng-select.ng-valid.ng-touched.validate .ng-select-container {
     border-color: #28c76f;
 }
+
+label {
+    color: #5e5873;
+    font-size: 0.857rem;
+    margin-bottom: 0.2857rem;
+}
+
+input::placeholder {
+  color: #d6d1d1; 
+  font-style: italic; 
+  font-size: 13px; 
+}
