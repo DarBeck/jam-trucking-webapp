@@ -8,6 +8,8 @@ import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { CustomersComponent } from './main/pages/customers/customers.component';
 import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
+import { DepartmentsComponent } from './main/pages/departments/departments.component';
+import { AddDepartmentComponent } from './main/pages/add-department/add-department.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,14 @@ const routes: Routes = [
       {
         path: 'add-customer',
         component: AddCustomerComponent,
+      },
+      {
+        path: 'departments',
+        component: DepartmentsComponent,
+      },
+      {
+        path: 'add-department',
+        component: AddDepartmentComponent,
       },
     ],
   },

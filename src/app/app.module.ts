@@ -25,6 +25,15 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UserService } from './services/user.service';
 import { AuthIntercepterService } from './services/auth-intercepter.service';
+import { DepartmentsComponent } from './main/pages/departments/departments.component';
+import { AddDepartmentComponent } from './main/pages/add-department/add-department.component';
+import { EmployeesComponent } from './main/pages/employees/employees.component';
+import { AddEmployeeComponent } from './main/pages/add-employee/add-employee.component';
+import { RentalsComponent } from './main/pages/rentals/rentals.component';
+import { AddRentalComponent } from './main/pages/add-rental/add-rental.component';
+import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
+import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
+import { InvoicesComponent } from './main/pages/invoices/invoices.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +48,15 @@ import { AuthIntercepterService } from './services/auth-intercepter.service';
     AddTruckComponent,
     AddCustomerComponent,
     CustomersComponent,
+    DepartmentsComponent,
+    AddDepartmentComponent,
+    EmployeesComponent,
+    AddEmployeeComponent,
+    RentalsComponent,
+    AddRentalComponent,
+    MaintenancesComponent,
+    AddMaintenanceComponent,
+    InvoicesComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,70 @@
         <span>Dashboard</span>
       </a>
     </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/departments">
+        <span class="icon">
+          <i class="fas fa-people-roof"></i>
+        </span>
+        <span>Departments</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/employees">
+        <span class="icon">
+          <i class="fas fa-people-group"></i>
+        </span>
+        <span>Employees</span>
+      </a>
+    </li>
+    <li class="divider">Operations</li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/add-rental" >
+        <span class="icon">
+          <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Rental</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/rentals" >
+        <span class="icon">
+          <i class="fas fa-handshake"></i>
+        </span>
+        <span>Rentals</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/add-maintenance" >
+        <span class="icon">
+          <i class="fas fa-wrench"></i>
+        </span>
+        <span>Add Maintenance</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/maintenances" >
+        <span class="icon">
+          <i class="fas fa-toolbox"></i>
+        </span>
+        <span>Maintenances</span>
+      </a>
+    </li>
+     <li class="nav-item" [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="nav-link" routerLink="/invoices" >
+        <span class="icon">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </span>
+        <span>Invoices</span>
+      </a>
+    </li>
     <li class="divider">Trucks</li>
     <li class="nav-item" [routerLinkActive]="'active'"
       [routerLinkActiveOptions]="{ exact: true }">
