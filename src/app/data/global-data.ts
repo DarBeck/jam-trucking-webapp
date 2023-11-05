@@ -48,3 +48,116 @@ export const fuelTypes: Option[] = [
     title: 'Propane',
   },
 ];
+
+export const genders: Option[] = [
+  {
+    value: 'Male',
+    title: 'Male',
+  },
+  {
+    value: 'Female',
+    title: 'Female',
+  },
+];
+
+export const parishes: Option[] = [
+  {
+    value: 'Hanover',
+    title: 'Hanover',
+  },
+  {
+    value: 'Saint Elizabeth',
+    title: 'Saint Elizabeth',
+  },
+  {
+    value: 'Saint James',
+    title: 'Saint James',
+  },
+  {
+    value: 'Trelawny',
+    title: 'Trelawny',
+  },
+  {
+    value: 'Westmoreland',
+    title: 'Westmoreland',
+  },
+  {
+    value: 'Clarendon',
+    title: 'Clarendon',
+  },
+  {
+    value: 'Manchester',
+    title: 'Manchester',
+  },
+  {
+    value: 'Saint Ann',
+    title: 'Saint Ann',
+  },
+  {
+    value: 'Saint Catherine',
+    title: 'Saint Catherine',
+  },
+  {
+    value: 'Saint Mary',
+    title: 'Saint Mary',
+  },
+  {
+    value: 'Kingston',
+    title: 'Kingston',
+  },
+  {
+    value: 'Portland',
+    title: 'Portland',
+  },
+  {
+    value: 'Saint Andrew',
+    title: 'Saint Andrew',
+  },
+  {
+    value: 'Saint Thomas',
+    title: 'Saint Thomas',
+  },
+];
+
+export const maritalStatuses: Option[] = [
+  {
+    value: 'Single',
+    title: 'Single',
+  },
+  {
+    value: 'Married',
+    title: 'Married',
+  },
+  {
+    value: 'Divorced',
+    title: 'Divorced',
+  },
+  {
+    value: 'Separated',
+    title: 'Separated',
+  },
+  {
+    value: 'Widowed',
+    title: 'Widowed',
+  },
+  {
+    value: 'CommonLaw',
+    title: 'Common Law',
+  },
+  {
+    value: 'CivilUnion',
+    title: 'Civil Union',
+  },
+  {
+    value: 'Annulled',
+    title: 'Annulled',
+  },
+  {
+    value: 'Remarried',
+    title: 'Remarried',
+  },
+  {
+    value: 'Other',
+    title: 'Other',
+  },
+];

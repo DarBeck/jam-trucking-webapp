@@ -6,6 +6,8 @@ import { MainWrapperComponent } from './main/components/main-wrapper/main-wrappe
 import { TrucksComponent } from './main/pages/trucks/trucks.component';
 import { AddTruckComponent } from './main/pages/add-truck/add-truck.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { CustomersComponent } from './main/pages/customers/customers.component';
+import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,14 @@ const routes: Routes = [
       {
         path: 'add-truck',
         component: AddTruckComponent,
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent,
+      },
+      {
+        path: 'add-customer',
+        component: AddCustomerComponent,
       },
     ],
   },

@@ -1,1 +1,183 @@
-<p>add-customer works!</p>
+<div class="row">
+  <div class="col-12">
+    <h4 class="card-title mb-3">Add Truck</h4>
+    <div class="card-body">
+      <form class="form" [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="trn">TRN</label>
+              <input
+                type="number"
+                id="trn"
+                class="form-control"
+                placeholder="TRN"
+                formControlName="trn"
+                [ngClass]="{
+                  'is-invalid': f['trn'].touched && f['trn'].errors,
+                  'is-valid': f['trn'].touched && !f['trn'].errors
+                }"
+                aria-describedby="trnRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                class="form-control"
+                placeholder="First Name"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid': f['firstName'].touched && f['firstName'].errors,
+                  'is-valid': f['firstName'].touched && !f['firstName'].errors
+                }"
+                aria-describedby="firstNameRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                class="form-control"
+                placeholder="Last Name"
+                formControlName="lastName"
+                [ngClass]="{
+                  'is-invalid': f['lastName'].touched && f['lastName'].errors,
+                  'is-valid': f['lastName'].touched && !f['lastName'].errors
+                }"
+                aria-describedby="lastNameRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label>Gender</label>
+            <div class="form-group">
+              <ng-select
+                [items]="genders"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="gender"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="dob">Date Of Birth</label>
+              <input
+                type="date"
+                id="dob"
+                class="form-control"
+                placeholder="Date Of Birth"
+                formControlName="dob"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input
+                type="text"
+                id="street"
+                class="form-control"
+                placeholder="Street"
+                formControlName="street"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                class="form-control"
+                placeholder="City"
+                formControlName="city"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label>State</label>
+            <div class="form-group">
+              <ng-select
+                [items]="states"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="state"
+              >
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input
+                type="text"
+                id="zip"
+                class="form-control"
+                placeholder="Zip"
+                formControlName="zip"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                type="text"
+                id="phoneNumber"
+                class="form-control"
+                placeholder="Phone Number"
+                formControlName="phoneNumber"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label>Marital Status</label>
+            <div class="form-group">
+              <ng-select
+                [items]="maritalStatuses"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="maritalStatus"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="submit"
+              [disabled]="!addCustomerForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Submitting...</span
+              >
+              <ng-template #submit>Submit</ng-template>
+            </button>
+            <button type="reset" rippleEffect class="btn btn-outline-secondary">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

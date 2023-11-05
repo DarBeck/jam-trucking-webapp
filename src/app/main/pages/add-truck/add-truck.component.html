@@ -53,18 +53,13 @@
           </div>
           <div class="col-md-6 col-12">
             <div class="form-group">
-              <label class="required" for="model">Model</label>
+              <label for="model">Model</label>
               <input
                 type="text"
                 id="model"
                 class="form-control"
                 placeholder="Model"
                 formControlName="model"
-                [ngClass]="{
-                  'is-invalid': f['model'].touched && f['model'].errors,
-                  'is-valid': f['model'].touched && !f['model'].errors
-                }"
-                aria-describedby="modelRequiredFeedback"
               />
             </div>
           </div>

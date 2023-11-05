@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AddTruckDto } from '../models/truck';
+import { AddTruckDto, Truck } from '../models/truck';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -14,5 +14,9 @@ export class TruckService {
     return this.http.post(`${environment.apiUrl}/truck`, dto, {
       observe: 'response',
     });
+  }
+
+  GetTrucks(): Observable<Truck[]> {
+    return this.http.get<Truck[]>(`${environment.apiUrl}/truck/all`);
   }
 }

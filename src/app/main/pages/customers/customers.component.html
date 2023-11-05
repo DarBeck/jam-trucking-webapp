@@ -1,1 +1,31 @@
-<p>customers works!</p>
+<ngx-datatable
+  #table
+  class="bootstrap core-bootstrap"
+  [headerHeight]="40"
+  [rowHeight]="58"
+  [footerHeight]="50"
+  rowHeight="auto"
+  [limit]="selectOption"
+  [rows]="customersFilter"
+  [scrollbarH]="true"
+  [columnMode]="ColumnMode.force"
+  [loadingIndicator]="customersLoading"
+>
+    <ngx-datatable-column
+    name="TRN"
+    prop="id"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="First Name"
+    prop="firstName"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Last Name"
+    prop="lastName"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Phone"
+    prop="phoneNumber"
+  ></ngx-datatable-column>
+</ngx-datatable>
+
