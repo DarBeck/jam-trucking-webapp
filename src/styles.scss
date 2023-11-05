@@ -201,3 +201,19 @@ h4,
 }
 
 label.required:after { content: '*';color:red; }
+
+.ng-select .ng-select-container {
+  border: 1px solid #dee2e6;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 37.6px;
+}
+
+ng-select.ng-invalid.ng-touched.validate .ng-select-container {
+    border-color: #ea5455;
+}
+
+ng-select.ng-valid.ng-touched.validate .ng-select-container {
+    border-color: #28c76f;
+}

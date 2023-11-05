@@ -21,6 +21,7 @@ export class AddTruckComponent {
       maxCapacity: [null],
       year: [new Date().getFullYear(), Validators.required],
       rentalPrice: [0, [Validators.required, Validators.min(1)]],
+      type: [null, Validators.required]
     });
   }
 

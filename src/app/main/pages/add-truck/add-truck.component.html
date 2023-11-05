@@ -5,6 +5,19 @@
       <form class="form" [formGroup]="addTruckForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-md-6 col-12">
+              <label class="required">Truck Type</label>
+              <div class="form-group">
+                <ng-select
+                  [items]="truckTypes"
+                  bindLabel="title"
+                  bindValue="value"
+                  formControlName="type"
+                  class="validate"
+                >
+                </ng-select>
+              </div>
+            </div>
+          <div class="col-md-6 col-12">
             <div class="form-group">
               <label class="required" for="license">License</label>
               <input

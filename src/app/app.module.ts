@@ -22,6 +22,7 @@ import { CustomersComponent } from './main/pages/customers/customers.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
       closeButton: true,
     }),
     NgxMaskDirective,
+    NgSelectModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
