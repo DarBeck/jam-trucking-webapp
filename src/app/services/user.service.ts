@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginModel } from '../models/user';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  user: Observable<User>;
+  private userSubject: BehaviorSubject<User>;
 
-  Login(credentials: LoginModel): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/auth/login`, credentials);
+  constructor() {
+    this.userSubject = new BehaviorSubject<User>(
+      JSON.parse(localStorage.getItem('user') ?? '{}')
+    );
+    this.user = this.userSubject.asObservable();
   }
+
+  get userData(): User {
+    return this.userSubject.value;
+  }
+
+  updateUser(user: User) {
+    this.userSubject.next(user);
+  }
+
+  
 }

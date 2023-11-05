@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './main/pages/login/login.component';
 import { RegisterComponent } from './main/pages/register/register.component';
 import { DashboardComponent } from './main/pages/dashboard/dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -23,6 +23,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UserService } from './services/user.service';
+import { AuthIntercepterService } from './services/auth-intercepter.service';
 
 @NgModule({
   declarations: [
@@ -55,8 +57,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthIntercepterService,
+      multi: true,
+    },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     provideEnvironmentNgxMask(),
+    UserService,
   ],
   bootstrap: [AppComponent],
 })

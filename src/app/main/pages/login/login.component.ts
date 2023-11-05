@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginModel } from 'src/app/models/user';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginModel, User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { NotificationService } from 'src/app/utilities/notification.service';
 import * as md5 from 'md5';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,15 @@ export class LoginComponent implements OnInit {
   loginForm: UntypedFormGroup;
 
   loading: boolean = false;
+  returnUrl: string = "";
 
   constructor(
     private router: Router,
     private userService: UserService,
     private notifyService: NotificationService,
-    private formBuilder: UntypedFormBuilder
+    private formBuilder: UntypedFormBuilder,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -29,6 +33,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
   }
 
   onSubmit() {
@@ -40,22 +46,25 @@ export class LoginComponent implements OnInit {
       password: md5(this.loginForm.get('password')?.value),
     };
 
-    this.userService.Login(credentials).subscribe(
-      (data: any) => {
-        console.log(data);
+    this.authService.Login(credentials).subscribe(
+      (response) => {
         this.loading = false;
 
-        if (data.Email.toLowerCase() == credentials.uid.toLowerCase()) {
-          console.log('Successful Password Verification');
+        if (response.status == 200) {
+          let user: User = {
+            id: response.body.user.id,
+            userId: response.body.user.userId,
+            firstName: response.body.user.firstName,
+            lastName: response.body.user.lastName,
+            email: response.body.user.email,
+            isSupervisor: response.body.user.isSupervisor,
+            role: response.body.user.role,
+            token: 'Bearer ' + response.body.token,
+          };
 
-          localStorage.setItem('auth-token', data.Phone);
-
-          this.router.navigateByUrl('/');
-        } else {
-          this.notifyService.showError(
-            'Your Email or Password is Incorrect',
-            'Invalid Credentials'
-          );
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userService.updateUser(user);
+          this.router.navigateByUrl(this.returnUrl);
         }
       },
       (error: any) => {
@@ -73,7 +82,6 @@ export class LoginComponent implements OnInit {
             'Your Email or Password is Incorrect',
             'Invalid Credentials'
           );
-          //this.notifyService.showError('Something went wrong', 'Error');
         }
       }
     );

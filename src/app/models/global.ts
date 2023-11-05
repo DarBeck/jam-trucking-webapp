@@ -9,3 +9,11 @@ export interface ApexChartOptions {
   fill: ApexFill;
   colors: string[];
 }
+
+export enum Roles {
+  Admin = 'Admin',
+  Mechanic = 'Mechanic',
+  RentalClerk = 'RentalClerk',
+  Manager = 'Manager',
+  Accountant = 'Accountant',
+}
