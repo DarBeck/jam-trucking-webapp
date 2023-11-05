@@ -6,17 +6,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  user: Observable<User>;
-  private userSubject: BehaviorSubject<User>;
+  user: Observable<User | null>;
+  private userSubject: BehaviorSubject<User | null>;
 
   constructor() {
-    this.userSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem('user') ?? '{}')
-    );
+    let userObj = localStorage.getItem('user');
+    this.userSubject =
+      userObj == null
+        ? new BehaviorSubject<User | null>(null)
+        : new BehaviorSubject<User | null>(JSON.parse(userObj));
     this.user = this.userSubject.asObservable();
   }
 
-  get userData(): User {
+  get userData(): User | null {
     return this.userSubject.value;
   }
 
