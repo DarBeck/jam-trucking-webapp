@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { NotificationService } from 'src/app/utilities/notification.service';
+import * as md5 from 'md5';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: UntypedFormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      uid: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
@@ -35,8 +36,8 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     var credentials: LoginModel = {
-      uid: this.loginForm.get('uid')?.value,
-      password: this.loginForm.get('password')?.value,
+      uid: this.loginForm.get('email')?.value,
+      password: md5(this.loginForm.get('password')?.value),
     };
 
     this.userService.Login(credentials).subscribe(
