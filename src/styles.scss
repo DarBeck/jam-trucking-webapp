@@ -199,3 +199,5 @@ h4,
 .card-subtitle {
     color: #6e6b7b;
 }
+
+label.required:after { content: '*';color:red; }

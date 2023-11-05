@@ -21,6 +21,7 @@ import { AddCustomerComponent } from './main/pages/add-customer/add-customer.com
 import { CustomersComponent } from './main/pages/customers/customers.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -49,8 +50,12 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ToastrModule.forRoot({
       closeButton: true,
     }),
+    NgxMaskDirective,
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    provideEnvironmentNgxMask(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,18 +6,109 @@
         <div class="row">
           <div class="col-md-6 col-12">
             <div class="form-group">
-              <label class="required" for="first-name">Liscense</label>
+              <label class="required" for="license">License</label>
               <input
                 type="text"
+                id="license"
                 class="form-control"
-                placeholder="Liscense"
-                formControlName="liscense"
+                placeholder="License"
+                formControlName="license"
                 [ngClass]="{
-                  'is-invalid': f['liscense'].touched && f['liscense'].errors,
-                  'is-valid': f['liscense'].touched && !f['liscense'].errors
+                  'is-invalid': f['license'].touched && f['license'].errors,
+                  'is-valid': f['license'].touched && !f['license'].errors
                 }"
-                aria-describedby="liscenseRequiredFeedback"
+                aria-describedby="licenseRequiredFeedback"
               />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="make">Make</label>
+              <input
+                type="text"
+                id="make"
+                class="form-control"
+                placeholder="Make"
+                formControlName="make"
+                [ngClass]="{
+                  'is-invalid': f['make'].touched && f['make'].errors,
+                  'is-valid': f['make'].touched && !f['make'].errors
+                }"
+                aria-describedby="makeRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="color">Color</label>
+              <input
+                type="text"
+                id="color"
+                class="form-control"
+                placeholder="Color"
+                formControlName="color"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="engineSize">Engine Size</label>
+              <div class="input-group">
+                <input
+                type="number"
+                id="engineSize"
+                class="form-control"
+                placeholder="Engine Size"
+                formControlName="engineSize"
+              />
+              <span class="input-group-text">cc</span>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="maxCapacity">Max Capacity</label>
+              <input
+                type="number"
+                id="maxCapacity"
+                class="form-control"
+                placeholder="Max Capacity"
+                formControlName="maxCapacity"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input
+                type="number"
+                id="year"
+                class="form-control"
+                placeholder="Year"
+                formControlName="year"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="rentalPrice">Rental Price</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                type="number"
+                id="rentalPrice"
+                class="form-control"
+                placeholder="Rental Price"
+                formControlName="rentalPrice"
+                [ngClass]="{
+                  'is-invalid': f['rentalPrice'].touched && f['rentalPrice'].errors,
+                  'is-valid': f['rentalPrice'].touched && !f['rentalPrice'].errors
+                }"
+                aria-describedby="rentalPriceRequiredFeedback"
+              />
+              </div>
+              
             </div>
           </div>
         </div>
