@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Option, fuelTypes, truckTypes } from 'src/app/data/global-data';
 import { AddTruckDto } from 'src/app/models/truck';
 import { TruckService } from 'src/app/services/truck.service';
+import { NotificationService } from 'src/app/utilities/notification.service';
 
 @Component({
   selector: 'app-add-truck',
@@ -19,7 +20,7 @@ export class AddTruckComponent {
   constructor(
     private formBuilder: UntypedFormBuilder,
     private truckService: TruckService,
-    private toastr: ToastrService
+    private notifyService: NotificationService
   ) {
     this.addTruckForm = this.formBuilder.group({
       license: ['', Validators.required],
@@ -64,15 +65,9 @@ export class AddTruckComponent {
     this.truckService.AddTruck(dto).subscribe(
       (response) => {
         if (response.status == 200) {
-          this.toastr.success(
+          this.notifyService.showSuccess(
             `Truck ${dto.license} was entered successfully`,
-            'Success!',
-            {
-              progressBar: true,
-              toastClass: 'toast ngx-toastr',
-              closeButton: true,
-            }
-          );
+            'Success!');
 
           this.addTruckForm.reset();
         }

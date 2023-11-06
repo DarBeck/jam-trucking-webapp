@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { genders, maritalStatuses, parishes } from 'src/app/data/global-data';
 import { AddCustomerDto, UserDetails } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
+import { NotificationService } from 'src/app/utilities/notification.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -19,7 +20,7 @@ export class AddCustomerComponent {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private toastr: ToastrService,
+    private notifyService: NotificationService,
     private customerService: CustomerService
   ) {
     this.addCustomerForm = this.formBuilder.group({
@@ -65,15 +66,9 @@ export class AddCustomerComponent {
     this.customerService.AddCustomer(dto).subscribe(
       (response) => {
         if (response.status == 200) {
-          this.toastr.success(
+          this.notifyService.showSuccess(
             `${dto.userDetails.firstName} ${dto.userDetails.lastName} was entered successfully`,
-            'Success!',
-            {
-              progressBar: true,
-              toastClass: 'toast ngx-toastr',
-              closeButton: true,
-            }
-          );
+            'Success!');
 
           this.addCustomerForm.reset();
         }

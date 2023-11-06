@@ -30,5 +30,6 @@ export interface AddEmployeeDto {
   extension: string;
   departmentId: number;
   skillLevel: string;
+  password: string;
   availability?: string;
 }

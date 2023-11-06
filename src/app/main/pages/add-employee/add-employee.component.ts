@@ -7,6 +7,7 @@ import { Department } from 'src/app/models/department';
 import { AddEmployeeDto } from 'src/app/models/employee';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { NotificationService } from 'src/app/utilities/notification.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -25,7 +26,7 @@ export class AddEmployeeComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private toastr: ToastrService,
+    private notifyService: NotificationService,
     private employeeService: EmployeeService,
     private departmentService: DepartmentService
   ) {
@@ -34,11 +35,12 @@ export class AddEmployeeComponent implements OnInit {
       lastName: ['', Validators.required],
       gender: [null],
       dob: [null, Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       street: ['', Validators.required],
       city: ['', Validators.required],
       state: [null, Validators.required],
       zip: [''],
+      password: ['', Validators.required],
       role: [null, Validators.required],
       extension: [''],
       departmentId: [null],
@@ -76,21 +78,16 @@ export class AddEmployeeComponent implements OnInit {
       extension: this.f['extension'].value,
       departmentId: this.f['departmentId'].value,
       skillLevel: this.f['skillLevel'].value,
+      password: this.f['password'].value,
       userDetails: userDeatils,
     };
 
     this.employeeService.AddEmployee(dto).subscribe(
       (response) => {
         if (response.status == 200) {
-          this.toastr.success(
+          this.notifyService.showSuccess(
             `${dto.userDetails.firstName} ${dto.userDetails.lastName} was entered successfully`,
-            'Success!',
-            {
-              progressBar: true,
-              toastClass: 'toast ngx-toastr',
-              closeButton: true,
-            }
-          );
+            'Success!');
 
           this.addEmployeeForm.reset();
         }
@@ -101,5 +98,19 @@ export class AddEmployeeComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  generatePassword(): void {
+    console.log("Generating password");
+    const length = 12;
+    const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let password = "";
+    for (let i = 0, n = charset.length; i < length; ++i) {
+      password += charset.charAt(Math.floor(Math.random() * n));
+    }
+
+    console.log("Password: " + password);
+
+    this.f['password'].setValue(password);
   }
 }

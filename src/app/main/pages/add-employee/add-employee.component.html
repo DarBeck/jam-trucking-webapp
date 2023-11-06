@@ -114,12 +114,28 @@
             <div class="form-group">
               <label class="required" for="email">Email</label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 class="form-control"
                 placeholder="Email"
                 formControlName="email"
               />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="password">Password</label>
+              <div class="input-group mb-3">
+                <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+              />
+              <button class="btn btn-outline-secondary" type="button"><i class="fas fa-rotate-right" (click)="generatePassword()"></i></button>
+              </div>
+              
             </div>
           </div>
           <div class="col-md-6 col-12">
