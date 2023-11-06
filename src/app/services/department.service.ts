@@ -19,4 +19,8 @@ export class DepartmentService {
       observe: 'response',
     });
   }
+
+  GetDepartment(id: number): Observable<Department> {
+    return this.http.get<Department>(`${environment.apiUrl}/department/${id}`);
+  }
 }

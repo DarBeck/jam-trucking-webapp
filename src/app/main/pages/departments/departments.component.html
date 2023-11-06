@@ -22,7 +22,13 @@
     <ngx-datatable-column
     name="Name"
     prop="name"
-  ></ngx-datatable-column>
+  >
+  <ng-template let-row="row" ngx-datatable-cell-template>
+      <a routerLink="/department/{{ row.id }}" class="font-medium-1 d-block">{{
+        row.name
+      }}</a>
+    </ng-template>
+</ngx-datatable-column>
   <ngx-datatable-column
     name="Supervisor"
     prop="supervisorName"

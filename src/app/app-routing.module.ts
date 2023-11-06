@@ -17,6 +17,7 @@ import { RentalsComponent } from './main/pages/rentals/rentals.component';
 import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
 import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
 import { InvoicesComponent } from './main/pages/invoices/invoices.component';
+import { DepartmentComponent } from './main/pages/department/department.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
       {
         path: 'invoices',
         component: InvoicesComponent,
+      },
+      {
+        path: 'department/:id',
+        component: DepartmentComponent,
       },
     ],
   },

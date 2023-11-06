@@ -34,6 +34,7 @@ import { AddRentalComponent } from './main/pages/add-rental/add-rental.component
 import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
 import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
 import { InvoicesComponent } from './main/pages/invoices/invoices.component';
+import { DepartmentComponent } from './main/pages/department/department.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { InvoicesComponent } from './main/pages/invoices/invoices.component';
     MaintenancesComponent,
     AddMaintenanceComponent,
     InvoicesComponent,
+    DepartmentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-8 mb-3">
+    <div class="row">
+      <div class="col-12">
+          <div class="card card-statistics">
+              <div class="card-body statistics-body">
+              <h6 class="card-subtitle mb-2 text-muted mb-4">Department Overview</h6>
+            <div class="row">
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                <div class="media">
+                  <div class="avatar bg-light-primary me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-people-group fa-xl"></i>
+                    </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">{{departmentData?.totalEmployees}}</h4>
+                    <p class="card-text font-small-3 mb-0">Employees</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                <div class="media">
+                  <div class="avatar bg-light-info me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-screwdriver-wrench fa-xl"></i>
+                    </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">{{departmentData?.currentMaintenances}}</h4>
+                    <p class="card-text font-small-3 mb-0">Current Maint.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                <div class="media">
+                  <div class="avatar bg-light-danger me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-clipboard-check fa-xl"></i>
+                    </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">{{departmentData?.completedMaintenances}}</h4>
+                    <p class="card-text font-small-3 mb-0">Completed Maint.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-12">
+                <div class="media">
+                  <div class="avatar bg-light-success me-3">
+                    <div class="avatar-content">
+                      <i class="fas fa-calendar-days fa-xl"></i>
+                    </div>
+                  </div>
+                  <div class="media-body my-auto">
+                    <h4 class="font-weight-bolder mb-0">{{departmentData?.upcomingMaintenances}}</h4>
+                    <p class="card-text font-small-3 mb-0">Upcoming Maint.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-12">
+    <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="name">Department Name</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Name"
+                [value]="departmentData?.name"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="name">Supervisor</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Name"
+                [value]="departmentData?.supervisorName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Name"
+                [value]="departmentData?.phoneNumber"
+              />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
