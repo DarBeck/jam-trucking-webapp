@@ -30,4 +30,5 @@ export interface Customer {
   city: string;
   state: string;
   zip: string;
+  fullName: string;
 }

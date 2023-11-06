@@ -1,1 +1,103 @@
-<p>add-rental works!</p>
+<div class="row">
+  <div class="col-12">
+    <h4 class="card-title mb-3">Add Rental</h4>
+    <div class="card-body">
+      <form class="form" [formGroup]="addRentalForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 col-12">
+            <label class="required">Customer</label>
+            <div class="form-group">
+              <ng-select
+                [items]="customers"
+                bindLabel="fullName"
+                bindValue="id"
+                formControlName="customerId"
+                [loading]="customersLoading"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Employee</label>
+            <div class="form-group">
+              <ng-select
+                [items]="employees"
+                bindLabel="fullName"
+                bindValue="id"
+                formControlName="employeeId"
+                [loading]="employeesLoading"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Truck</label>
+            <div class="form-group">
+              <ng-select
+                [items]="trucks"
+                bindLabel="license"
+                bindValue="id"
+                formControlName="truckId"
+                [loading]="trucksLoading"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="dateOfRent">Rent Date</label>
+              <input
+                type="date"
+                id="dateOfRent"
+                class="form-control"
+                placeholder="Rent Date"
+                formControlName="dateOfRent"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="dateOfReturn">Return Date</label>
+              <input
+                type="date"
+                id="dateOfReturn"
+                class="form-control"
+                placeholder="Return Date"
+                formControlName="dateOfReturn"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="submit"
+              [disabled]="!addRentalForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Submitting...</span
+              >
+              <ng-template #submit>Submit</ng-template>
+            </button>
+            <button type="reset" rippleEffect class="btn btn-outline-secondary">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
