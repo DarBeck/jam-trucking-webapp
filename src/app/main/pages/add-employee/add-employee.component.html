@@ -52,7 +52,7 @@
           </div>
           <div class="col-md-6 col-12">
             <div class="form-group">
-              <label for="dob">Date Of Birth</label>
+              <label class="required" for="dob">Date Of Birth</label>
               <input
                 type="date"
                 id="dob"
@@ -123,6 +123,19 @@
             </div>
           </div>
           <div class="col-md-6 col-12">
+            <label class="required">Role</label>
+            <div class="form-group">
+              <ng-select
+                [items]="roles"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="role"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+           <div *ngIf="f['role'].value == 'Supervisor'" class="col-md-6 col-12">
             <div class="form-group">
               <label for="extension">Extension</label>
               <input
@@ -134,33 +147,21 @@
               />
             </div>
           </div>
-          <div class="col-md-6 col-12">
-            <label class="required">Role</label>
-            <div class="form-group">
-              <ng-select
-                [items]="roles"
-                bindLabel="title"
-                bindValue="value"
-                formControlName="role"
-              >
-              </ng-select>
-            </div>
-          </div>
-          <div class="col-md-6 col-12">
-            <label class="required">Department</label>
+          <div *ngIf="f['role'].value == 'Mechanic'" class="col-md-6 col-12">
+            <label>Department</label>
             <div class="form-group">
               <ng-select
                 [items]="departments"
-                bindLabel="title"
-                bindValue="value"
+                bindLabel="name"
+                bindValue="id"
                 formControlName="departmentId"
                 [loading]="departmentsLoading"
               >
               </ng-select>
             </div>
           </div>
-          <div class="col-md-6 col-12">
-            <label class="required">Skill Level</label>
+          <div *ngIf="f['role'].value == 'Mechanic'" class="col-md-6 col-12">
+            <label>Skill Level</label>
             <div class="form-group">
               <ng-select
                 [items]="skillLevels"
@@ -169,21 +170,6 @@
                 formControlName="skillLevel"
               >
               </ng-select>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3 py-2">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="isSupervisor"
-                formControlName="isSupervisor"
-              />
-              <label class="form-check-label" for="isSupervisor">
-                Supervisor
-              </label>
             </div>
           </div>
         </div>

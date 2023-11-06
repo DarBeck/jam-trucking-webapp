@@ -183,6 +183,10 @@ export const roles: Option[] = [
     value: 'Accountant',
     title: 'Accountant',
   },
+  {
+    value: 'Supervisor',
+    title: 'Supervisor',
+  },
 ];
 
 export const skillLevels: Option[] = [

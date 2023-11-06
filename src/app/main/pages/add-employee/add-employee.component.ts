@@ -33,17 +33,16 @@ export class AddEmployeeComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       gender: [null],
-      dob: [''],
+      dob: [null, Validators.required],
       email: ['', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
       state: [null, Validators.required],
       zip: [''],
       role: [null, Validators.required],
-      isSupervisor: [false],
       extension: [''],
-      departmentId: [null, Validators.required],
-      skillLevel: [null, Validators.required],
+      departmentId: [null],
+      skillLevel: [null],
     });
   }
   ngOnInit(): void {
@@ -72,12 +71,11 @@ export class AddEmployeeComponent implements OnInit {
     };
 
     var dto: AddEmployeeDto = {
-      email: this.f['trn'].value,
-      role: this.f['phoneNumber'].value,
-      isSupervisor: this.f['maritalStatus'].value,
-      extension: this.f['maritalStatus'].value,
-      departmentId: this.f['maritalStatus'].value,
-      skillLevel: this.f['maritalStatus'].value,
+      email: this.f['email'].value,
+      role: this.f['role'].value,
+      extension: this.f['extension'].value,
+      departmentId: this.f['departmentId'].value,
+      skillLevel: this.f['skillLevel'].value,
       userDetails: userDeatils,
     };
 

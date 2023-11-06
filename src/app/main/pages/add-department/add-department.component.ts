@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AddDepartmentDto } from 'src/app/models/department';
 import { Employee } from 'src/app/models/employee';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { NotificationService } from 'src/app/utilities/notification.service';
 
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
   styleUrls: ['./add-department.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AddDepartmentComponent implements OnInit {
   addDepartmentForm: UntypedFormGroup;
@@ -19,7 +21,7 @@ export class AddDepartmentComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private toastr: ToastrService,
+    private notifyService: NotificationService,
     private departmentService: DepartmentService,
     private employeeService: EmployeeService
   ) {
@@ -32,7 +34,10 @@ export class AddDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeService.GetEmployees().subscribe((data) => {
-      this.employees = data;
+      this.employees = data.map((i) => {
+        i.fullName = i.firstName + ' ' + i.lastName;
+        return i;
+      });;
       this.employeesLoading = false;
     });
   }
@@ -53,14 +58,10 @@ export class AddDepartmentComponent implements OnInit {
     this.departmentService.AddDepartment(dto).subscribe(
       (response) => {
         if (response.status == 200) {
-          this.toastr.success(
+          console.log("Successfully added department");
+          this.notifyService.showSuccess(
             `${dto.name} Department was entered successfully`,
-            'Success!',
-            {
-              progressBar: true,
-              toastClass: 'toast ngx-toastr',
-              closeButton: true,
-            }
+            'Success!'
           );
 
           this.addDepartmentForm.reset();

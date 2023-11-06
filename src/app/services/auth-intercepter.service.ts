@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from './user.service';
 import { Observable, catchError, throwError } from 'rxjs';
+import { NotificationService } from '../utilities/notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class AuthIntercepterService implements HttpInterceptor {
   constructor(
     private router: Router,
-    private toastr: ToastrService,
+    private notifyService: NotificationService,
     private userService: UserService
   ) {}
 
@@ -35,6 +36,8 @@ export class AuthIntercepterService implements HttpInterceptor {
         if (err.status === 401) {
           this.router.navigateByUrl('/login');
         } else if (err.status === 400) {
+          console.log(err);
+          console.log("Bad Request");
           this.showBadRequestError(err);
         }
         const error = err.error?.message || err.statusText;
@@ -44,27 +47,20 @@ export class AuthIntercepterService implements HttpInterceptor {
   }
 
   private showBadRequestError(error: any) {
+    console.log("Show Bad Request called");
     const isFieldErrorsEmpty = Object.values(error.error?.errors).every(
       (error: any) => !error.length
     );
     if (!isFieldErrorsEmpty) {
+      console.log("Field Errors not empty");
       for (const [key, value] of Object.entries(error.error?.errors)) {
         if (Array.isArray(value)) {
-          this.toastr.error(value[0], key, {
-            progressBar: true,
-            toastClass: 'toast ngx-toastr',
-            closeButton: true,
-            timeOut: 15000,
-          });
+          console.log("Value is array");
+          this.notifyService.showError(value[0], key);
         }
       }
     } else if (error.error?.title && error.error?.detail) {
-      this.toastr.error(error.error.detail, error.error.title, {
-        progressBar: true,
-        toastClass: 'toast ngx-toastr',
-        closeButton: true,
-        timeOut: 15000,
-      });
+      this.notifyService.showError(error.error.detail, error.error.title);
     }
   }
 }
