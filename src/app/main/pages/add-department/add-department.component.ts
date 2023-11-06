@@ -34,10 +34,12 @@ export class AddDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeService.GetEmployees().subscribe((data) => {
-      this.employees = data.map((i) => {
-        i.fullName = i.firstName + ' ' + i.lastName;
-        return i;
-      });;
+      this.employees = data
+        .filter((i) => i.role == 'Supervisor')
+        .map((i) => {
+          i.fullName = i.firstName + ' ' + i.lastName;
+          return i;
+        });;
       this.employeesLoading = false;
     });
   }

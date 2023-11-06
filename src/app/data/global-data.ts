@@ -207,3 +207,69 @@ export const skillLevels: Option[] = [
     title: 'Expert',
   },
 ];
+
+export const maintenanceTypes: Option[] = [
+  {
+    value: 'Preventive',
+    title: 'Preventive',
+  },
+  {
+    value: 'Routine',
+    title: 'Routine',
+  },
+  {
+    value: 'Corrective',
+    title: 'Corrective',
+  },
+  {
+    value: 'Predictive',
+    title: 'Predictive',
+  },
+  {
+    value: 'ConditionBased',
+    title: 'Condition Based',
+  },
+  {
+    value: 'Seasonal',
+    title: 'Seasonal',
+  },
+  {
+    value: 'Emergency',
+    title: 'Emergency',
+  },
+  {
+    value: 'Overhaul',
+    title: 'Overhaul',
+  },
+  {
+    value: 'Fleet',
+    title: 'Fleet',
+  },
+  {
+    value: 'Safety',
+    title: 'Safety',
+  },
+  {
+    value: 'Regulatory',
+    title: 'Regulatory',
+  },
+];
+
+export const priorities: Option[] = [
+  {
+    value: 'Low',
+    title: 'Low',
+  },
+  {
+    value: 'Medium',
+    title: 'Medium',
+  },
+  {
+    value: 'High',
+    title: 'High',
+  },
+  {
+    value: 'Critical',
+    title: 'Critical',
+  },
+];

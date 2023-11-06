@@ -1,1 +1,148 @@
-<p>add-maintenance works!</p>
+<div class="row">
+  <div class="col-12">
+    <h4 class="card-title mb-3">Add Maintenance</h4>
+    <div class="card-body">
+      <form
+        class="form"
+        [formGroup]="addMaintenanceForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <label class="required">Mechanic</label>
+            <div class="form-group">
+              <ng-select
+                [items]="employees"
+                bindLabel="fullName"
+                bindValue="userId"
+                formControlName="mechanicId"
+                [loading]="employeesLoading"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Truck</label>
+            <div class="form-group">
+              <ng-select
+                [items]="trucks"
+                bindLabel="license"
+                bindValue="id"
+                formControlName="truckId"
+                [loading]="trucksLoading"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="serviceDate">Service Date</label>
+              <input
+                type="date"
+                id="serviceDate"
+                class="form-control"
+                placeholder="Service Date"
+                formControlName="serviceDate"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Type</label>
+            <div class="form-group">
+              <ng-select
+                [items]="maintenanceTypes"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="type"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Minimum Skill Level</label>
+            <div class="form-group">
+              <ng-select
+                [items]="skillLevels"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="minimumSkillLevelRequired"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Priority</label>
+            <div class="form-group">
+              <ng-select
+                [items]="priorities"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="priority"
+                class="validate"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="cost">Cost</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  id="cost"
+                  class="form-control"
+                  placeholder="Cost"
+                  formControlName="cost"
+                  [ngClass]="{
+                    'is-invalid': f['cost'].touched && f['cost'].errors,
+                    'is-valid': f['cost'].touched && !f['cost'].errors
+                  }"
+                  aria-describedby="costRequiredFeedback"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                placeholder="Description"
+                formControlName="description"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="submit"
+              [disabled]="!addMaintenanceForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Submitting...</span
+              >
+              <ng-template #submit>Submit</ng-template>
+            </button>
+            <button type="reset" rippleEffect class="btn btn-outline-secondary">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
