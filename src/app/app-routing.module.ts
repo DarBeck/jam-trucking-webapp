@@ -10,6 +10,8 @@ import { CustomersComponent } from './main/pages/customers/customers.component';
 import { AddCustomerComponent } from './main/pages/add-customer/add-customer.component';
 import { DepartmentsComponent } from './main/pages/departments/departments.component';
 import { AddDepartmentComponent } from './main/pages/add-department/add-department.component';
+import { EmployeesComponent } from './main/pages/employees/employees.component';
+import { AddEmployeeComponent } from './main/pages/add-employee/add-employee.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,14 @@ const routes: Routes = [
       {
         path: 'add-department',
         component: AddDepartmentComponent,
+      },
+      {
+        path: 'employees',
+        component: EmployeesComponent,
+      },
+      {
+        path: 'add-employee',
+        component: AddEmployeeComponent,
       },
     ],
   },

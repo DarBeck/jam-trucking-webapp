@@ -161,3 +161,45 @@ export const maritalStatuses: Option[] = [
     title: 'Other',
   },
 ];
+
+export const roles: Option[] = [
+  {
+    value: 'Admin',
+    title: 'Admin',
+  },
+  {
+    value: 'Mechanic',
+    title: 'Mechanic',
+  },
+  {
+    value: 'RentalClerk',
+    title: 'Rental Clerk',
+  },
+  {
+    value: 'Manager',
+    title: 'Manager',
+  },
+  {
+    value: 'Accountant',
+    title: 'Accountant',
+  },
+];
+
+export const skillLevels: Option[] = [
+  {
+    value: 'Rookie',
+    title: 'Rookie',
+  },
+  {
+    value: 'Intermediate',
+    title: 'Intermediate',
+  },
+  {
+    value: 'Experienced',
+    title: 'Experienced',
+  },
+  {
+    value: 'Expert',
+    title: 'Expert',
+  },
+];

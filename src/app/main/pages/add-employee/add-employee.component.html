@@ -1,1 +1,217 @@
-<p>add-employee works!</p>
+<div class="row">
+  <div class="col-12">
+    <h4 class="card-title mb-3">Add Employee</h4>
+    <div class="card-body">
+      <form class="form" [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                class="form-control"
+                placeholder="First Name"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid': f['firstName'].touched && f['firstName'].errors,
+                  'is-valid': f['firstName'].touched && !f['firstName'].errors
+                }"
+                aria-describedby="firstNameRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                class="form-control"
+                placeholder="Last Name"
+                formControlName="lastName"
+                [ngClass]="{
+                  'is-invalid': f['lastName'].touched && f['lastName'].errors,
+                  'is-valid': f['lastName'].touched && !f['lastName'].errors
+                }"
+                aria-describedby="lastNameRequiredFeedback"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label>Gender</label>
+            <div class="form-group">
+              <ng-select
+                [items]="genders"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="gender"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="dob">Date Of Birth</label>
+              <input
+                type="date"
+                id="dob"
+                class="form-control"
+                placeholder="Date Of Birth"
+                formControlName="dob"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="required" for="street">Street</label>
+              <input
+                type="text"
+                id="street"
+                class="form-control"
+                placeholder="Street"
+                formControlName="street"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                class="form-control"
+                placeholder="City"
+                formControlName="city"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">State</label>
+            <div class="form-group">
+              <ng-select
+                [items]="states"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="state"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input
+                type="text"
+                id="zip"
+                class="form-control"
+                placeholder="Zip"
+                formControlName="zip"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label class="required" for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="email"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="extension">Extension</label>
+              <input
+                type="text"
+                id="extension"
+                class="form-control"
+                placeholder="Extension"
+                formControlName="extension"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Role</label>
+            <div class="form-group">
+              <ng-select
+                [items]="roles"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="role"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Department</label>
+            <div class="form-group">
+              <ng-select
+                [items]="departments"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="departmentId"
+                [loading]="departmentsLoading"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label class="required">Skill Level</label>
+            <div class="form-group">
+              <ng-select
+                [items]="skillLevels"
+                bindLabel="title"
+                bindValue="value"
+                formControlName="skillLevel"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 py-2">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isSupervisor"
+                formControlName="isSupervisor"
+              />
+              <label class="form-check-label" for="isSupervisor">
+                Supervisor
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="submit"
+              [disabled]="!addEmployeeForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Submitting...</span
+              >
+              <ng-template #submit>Submit</ng-template>
+            </button>
+            <button type="reset" rippleEffect class="btn btn-outline-secondary">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
