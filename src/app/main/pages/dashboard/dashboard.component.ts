@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApexChartOptions } from 'src/app/models/global';
+import { CompanyOverview } from 'src/app/models/report';
+import { ReportService } from 'src/app/services/report.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +11,7 @@ import { ApexChartOptions } from 'src/app/models/global';
 export class DashboardComponent implements OnInit {
   private $warning = '#FF9F43';
 
+  companyOverview: CompanyOverview | null = null;
   barChartLabels = ['July', 'August', 'September', 'October', 'November'];
   profitChart: ApexChartOptions;
   revenueChart = {
@@ -44,7 +47,7 @@ export class DashboardComponent implements OnInit {
     legend: false,
   };
 
-  constructor() {
+  constructor(private reportService: ReportService) {
     this.profitChart = {
       chart: {
         height: 100,
@@ -86,6 +89,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.reportService.GetCompanyOverview().subscribe((data) => {
+      this.companyOverview = data;
+    });
   }
 
   generateRandomColor() {
