@@ -29,5 +29,5 @@ export interface AddTruckDto {
   seatCap: number;
   wheelNum: number;
   fuelType: string;
-  licenceNum: number;
+  licenseNum: number;
 }

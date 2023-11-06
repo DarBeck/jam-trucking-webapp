@@ -14,6 +14,8 @@ import { EmployeesComponent } from './main/pages/employees/employees.component';
 import { AddEmployeeComponent } from './main/pages/add-employee/add-employee.component';
 import { AddRentalComponent } from './main/pages/add-rental/add-rental.component';
 import { RentalsComponent } from './main/pages/rentals/rentals.component';
+import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
+import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
 
 const routes: Routes = [
   {
@@ -64,6 +66,14 @@ const routes: Routes = [
       {
         path: 'rentals',
         component: RentalsComponent,
+      },
+      {
+        path: 'add-maintenance',
+        component: AddMaintenanceComponent,
+      },
+      {
+        path: 'maintenances',
+        component: MaintenancesComponent,
       },
     ],
   },

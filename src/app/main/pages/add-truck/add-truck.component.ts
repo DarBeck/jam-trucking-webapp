@@ -59,14 +59,14 @@ export class AddTruckComponent {
       seatCap: this.f['seatCap'].value,
       wheelNum: this.f['wheelNum'].value,
       fuelType: this.f['fuelType'].value,
-      licenceNum: this.f['license'].value,
+      licenseNum: this.f['license'].value,
     };
 
     this.truckService.AddTruck(dto).subscribe(
       (response) => {
         if (response.status == 200) {
           this.notifyService.showSuccess(
-            `Truck ${dto.licenceNum} was entered successfully`,
+            `Truck ${dto.licenseNum} was entered successfully`,
             'Success!');
 
           this.addTruckForm.reset();
