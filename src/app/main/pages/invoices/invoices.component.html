@@ -1,1 +1,81 @@
-<p>invoices works!</p>
+<form class="form" [formGroup]="invoiceQueryForm" (ngSubmit)="onSearch()">
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div class="form-group">
+        <label class="required" for="since">Since</label>
+        <input
+          type="date"
+          id="since"
+          class="form-control"
+          placeholder="Since"
+          formControlName="since"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 col-12">
+        <div class="form-group">
+        <label class="required" for="until">Until</label>
+        <input
+          type="date"
+          id="until"
+          class="form-control"
+          placeholder="Until"
+          formControlName="until"
+        />
+      </div>
+    </div>
+    <div class="col-md-8 col-12">
+        <button
+              type="submit"
+              [disabled]="!invoiceQueryForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Searching...</span
+              >
+              <ng-template #submit>Search</ng-template>
+            </button>
+    </div>
+  </div>
+</form>
+<ngx-datatable
+  #table
+  class="bootstrap core-bootstrap"
+  [headerHeight]="40"
+  [rowHeight]="58"
+  [footerHeight]="50"
+  rowHeight="auto"
+  [limit]="selectOption"
+  [rows]="invoices"
+  [scrollbarH]="true"
+  [columnMode]="ColumnMode.force"
+  [loadingIndicator]="invoicesLoading"
+>
+    <ngx-datatable-column
+    name="Reference Number"
+    prop="referenceNumber"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Status"
+    prop="status"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Date"
+    prop="date"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Due Date"
+    prop="dueDate"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Total"
+    prop="total"
+  ></ngx-datatable-column>
+</ngx-datatable>

@@ -16,6 +16,7 @@ import { AddRentalComponent } from './main/pages/add-rental/add-rental.component
 import { RentalsComponent } from './main/pages/rentals/rentals.component';
 import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
 import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
+import { InvoicesComponent } from './main/pages/invoices/invoices.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
       {
         path: 'maintenances',
         component: MaintenancesComponent,
+      },
+      {
+        path: 'invoices',
+        component: InvoicesComponent,
       },
     ],
   },

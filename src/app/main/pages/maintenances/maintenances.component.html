@@ -1,1 +1,45 @@
-<p>maintenances works!</p>
+<div class="row">
+    <div class="col-12 mb-3">
+    <button routerLink="/add-maintenance" class="btn btn-primary ml-1" rippleEffect>
+      <i class="fas fa-plus me-1"></i>
+      <span class="d-none d-sm-inline-block">Add New Maintenance</span>
+    </button>
+  </div>
+</div>
+<ngx-datatable
+  #table
+  class="bootstrap core-bootstrap"
+  [headerHeight]="40"
+  [rowHeight]="58"
+  [footerHeight]="50"
+  rowHeight="auto"
+  [limit]="selectOption"
+  [rows]="maintenancesFilter"
+  [scrollbarH]="true"
+  [columnMode]="ColumnMode.force"
+  [loadingIndicator]="maintenancesLoading"
+>
+    <ngx-datatable-column
+    name="Truck"
+    prop="truckLicense"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Type"
+    prop="type"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Mechanic"
+    prop="mechanicName"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Cost"
+    prop="cost"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Service Date"
+    prop="serviceDate"
+  ></ngx-datatable-column>
+</ngx-datatable>
+
+
+
