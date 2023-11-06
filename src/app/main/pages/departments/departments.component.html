@@ -1,1 +1,39 @@
-<p>departments works!</p>
+<div class="row">
+    <div class="col-12 mb-3">
+    <button routerLink="/add-department" class="btn btn-primary ml-1" rippleEffect>
+      <i class="fas fa-plus me-1"></i>
+      <span class="d-none d-sm-inline-block">Add New Department</span>
+    </button>
+  </div>
+</div>
+<ngx-datatable
+  #table
+  class="bootstrap core-bootstrap"
+  [headerHeight]="40"
+  [rowHeight]="58"
+  [footerHeight]="50"
+  rowHeight="auto"
+  [limit]="selectOption"
+  [rows]="departmentsFilter"
+  [scrollbarH]="true"
+  [columnMode]="ColumnMode.force"
+  [loadingIndicator]="departmentsLoading"
+>
+    <ngx-datatable-column
+    name="Name"
+    prop="name"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Supervisor"
+    prop="supervisorName"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Employees"
+    prop="totalEmployees"
+  ></ngx-datatable-column>
+  <ngx-datatable-column
+    name="Current Maintenances"
+    prop="currentMaintenances"
+  ></ngx-datatable-column>
+</ngx-datatable>
+
