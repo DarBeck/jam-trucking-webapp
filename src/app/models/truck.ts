@@ -1,6 +1,6 @@
 export interface Truck {
   id: number;
-  license: number;
+  licenceNum: number;
   make: string;
   color: string;
   model: string;
@@ -29,5 +29,5 @@ export interface AddTruckDto {
   seatCap: number;
   wheelNum: number;
   fuelType: string;
-  license: number;
+  licenceNum: number;
 }

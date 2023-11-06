@@ -27,8 +27,8 @@ export class AddTruckComponent {
       make: [''],
       color: [''],
       model: [''],
-      engineSize: [null],
-      maxCapacity: [null],
+      engineSize: [null, Validators.required],
+      maxCapacity: [null, Validators.required],
       year: [new Date().getFullYear(), Validators.required],
       rentalPrice: [0, [Validators.required, Validators.min(1)]],
       type: [null, Validators.required],
@@ -59,14 +59,14 @@ export class AddTruckComponent {
       seatCap: this.f['seatCap'].value,
       wheelNum: this.f['wheelNum'].value,
       fuelType: this.f['fuelType'].value,
-      license: this.f['license'].value,
+      licenceNum: this.f['license'].value,
     };
 
     this.truckService.AddTruck(dto).subscribe(
       (response) => {
         if (response.status == 200) {
           this.notifyService.showSuccess(
-            `Truck ${dto.license} was entered successfully`,
+            `Truck ${dto.licenceNum} was entered successfully`,
             'Success!');
 
           this.addTruckForm.reset();

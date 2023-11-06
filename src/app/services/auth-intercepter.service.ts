@@ -48,9 +48,15 @@ export class AuthIntercepterService implements HttpInterceptor {
 
   private showBadRequestError(error: any) {
     console.log("Show Bad Request called");
-    const isFieldErrorsEmpty = Object.values(error.error?.errors).every(
-      (error: any) => !error.length
-    );
+    console.log(error);
+    console.log('title', error.error?.title);
+    console.log('detail', error.error?.detail);
+    console.log('errors', error.error?.errors);
+    const isFieldErrorsEmpty = error.error?.errors == undefined ? true : Object
+      .values(error.error?.errors)
+      .every((error: any) => !error.length);
+
+    console.log('isFieldErrorsEmpty', isFieldErrorsEmpty);
     if (!isFieldErrorsEmpty) {
       console.log("Field Errors not empty");
       for (const [key, value] of Object.entries(error.error?.errors)) {
@@ -59,7 +65,8 @@ export class AuthIntercepterService implements HttpInterceptor {
           this.notifyService.showError(value[0], key);
         }
       }
-    } else if (error.error?.title && error.error?.detail) {
+    } else if (error.error?.title.length > 0 && error.error?.detail.length > 0) {
+      console.log('Title and detail not empty');
       this.notifyService.showError(error.error.detail, error.error.title);
     }
   }
