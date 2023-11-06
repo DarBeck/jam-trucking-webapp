@@ -35,6 +35,10 @@ import { MaintenancesComponent } from './main/pages/maintenances/maintenances.co
 import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-maintenance.component';
 import { InvoicesComponent } from './main/pages/invoices/invoices.component';
 import { DepartmentComponent } from './main/pages/department/department.component';
+import { EmployeeComponent } from './main/pages/employee/employee.component';
+import { RentalComponent } from './main/pages/rental/rental.component';
+import { TruckComponent } from './main/pages/truck/truck.component';
+import { CustomerComponent } from './main/pages/customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,10 @@ import { DepartmentComponent } from './main/pages/department/department.componen
     AddMaintenanceComponent,
     InvoicesComponent,
     DepartmentComponent,
+    EmployeeComponent,
+    RentalComponent,
+    TruckComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,

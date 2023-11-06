@@ -19,10 +19,7 @@ export class DepartmentComponent implements OnInit {
   departmentId: number = 0;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
-    private notifyService: NotificationService,
     private departmentService: DepartmentService,
-    private employeeService: EmployeeService,
     private route: ActivatedRoute
   ) {}
 

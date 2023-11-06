@@ -19,4 +19,8 @@ export class EmployeeService {
       observe: 'response',
     });
   }
+
+  GetEmployee(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${environment.apiUrl}/employee/${id}`);
+  }
 }

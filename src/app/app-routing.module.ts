@@ -18,6 +18,7 @@ import { AddMaintenanceComponent } from './main/pages/add-maintenance/add-mainte
 import { MaintenancesComponent } from './main/pages/maintenances/maintenances.component';
 import { InvoicesComponent } from './main/pages/invoices/invoices.component';
 import { DepartmentComponent } from './main/pages/department/department.component';
+import { EmployeeComponent } from './main/pages/employee/employee.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,10 @@ const routes: Routes = [
       {
         path: 'department/:id',
         component: DepartmentComponent,
+      },
+      {
+        path: 'employee/:id',
+        component: EmployeeComponent,
       },
     ],
   },

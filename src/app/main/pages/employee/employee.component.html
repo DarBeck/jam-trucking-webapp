@@ -1,0 +1,176 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                readonly
+                class="form-control-plaintext"
+                placeholder="First Name"
+                [value]="employeeData?.firstName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Last Name"
+                [value]="employeeData?.lastName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="lastName">Gender</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Gender"
+                [value]="employeeData?.gender"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="dob">Date Of Birth</label>
+              <input
+                type="text"
+                id="dob"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Date Of Birth"
+                [value]="employeeData?.dob | date: 'MM/dd/yyyy'"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input
+                type="text"
+                id="street"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Street"
+                [value]="employeeData?.street"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                readonly
+                class="form-control-plaintext"
+                placeholder="City"
+                [value]="employeeData?.city"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>State</label>
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Last Name"
+                [value]="employeeData?.state"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input
+                type="text"
+                id="zip"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Zip"
+                [value]="employeeData?.zip"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Email"
+                [value]="employeeData?.email"
+              />
+            </div>
+          </div>
+            <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Role</label>
+              <input
+                type="text"
+                id="lastName"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Role"
+                [value]="employeeData?.role"
+              />
+            </div>
+          </div>
+
+          </div>
+           <div *ngIf="employeeData?.role == 'Supervisor'" class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="extension">Extension</label>
+              <input
+                type="text"
+                id="extension"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Extension"
+                [value]="employeeData?.extension"
+              />
+            </div>
+          </div>
+          <div *ngIf="employeeData?.role == 'Mechanic'" class="col-md-6 col-12">
+            <label>Department</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="extension"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Department"
+                [value]="employeeData?.departmentName"
+              />
+            </div>
+          </div>
+          <div *ngIf="employeeData?.role == 'Mechanic'" class="col-md-6 col-12">
+            <label>Skill Level</label>
+            <div class="form-group">
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                placeholder="Extension"
+                [value]="employeeData?.skillLevel"
+              />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
