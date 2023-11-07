@@ -290,3 +290,18 @@ a {
     //margin-left: 1rem;
     margin-bottom: 31px;
 }
+
+.invoice-table th {
+  background-color: #f3f2f7;
+}
+
+.invoice-total-wrapper {
+    width: 100%;
+    max-width: 12rem;
+}
+
+.invoice-total-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
