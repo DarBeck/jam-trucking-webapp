@@ -19,4 +19,8 @@ export class CustomerService {
   GetCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(`${environment.apiUrl}/customer/all`);
   }
+
+  GetCustomer(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`${environment.apiUrl}/customer/${id}`);
+  }
 }

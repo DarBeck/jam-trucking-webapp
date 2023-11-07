@@ -21,6 +21,7 @@ import { DepartmentComponent } from './main/pages/department/department.componen
 import { EmployeeComponent } from './main/pages/employee/employee.component';
 import { RentalComponent } from './main/pages/rental/rental.component';
 import { TruckComponent } from './main/pages/truck/truck.component';
+import { CustomerComponent } from './main/pages/customer/customer.component';
 
 const routes: Routes = [
   {
@@ -99,6 +100,10 @@ const routes: Routes = [
       {
         path: 'truck/:id',
         component: TruckComponent,
+      },
+      {
+        path: 'customer/:id',
+        component: CustomerComponent,
       },
     ],
   },

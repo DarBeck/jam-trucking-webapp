@@ -14,7 +14,13 @@
     <ngx-datatable-column
     name="TRN"
     prop="id"
-  ></ngx-datatable-column>
+  >
+  <ng-template let-row="row" ngx-datatable-cell-template>
+      <a routerLink="/customer/{{ row.id }}" class="font-medium-1 d-block">{{
+        row.id
+      }}</a>
+    </ng-template>
+</ngx-datatable-column>
   <ngx-datatable-column
     name="First Name"
     prop="firstName"
