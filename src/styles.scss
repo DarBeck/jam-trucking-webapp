@@ -257,3 +257,36 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+
+.invoice-date-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.invoice-date-title {
+    width: 7rem;
+    margin-bottom: 0;
+}
+
+.invoice-date {
+    margin-left: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.invoice-title {
+    text-align: right;
+    margin-bottom: 3rem;
+}
+
+.invoice-number {
+    font-weight: 600;
+}
+
+.invoice-logo {
+    font-size: 2.142rem;
+    font-weight: bold;
+    letter-spacing: -0.54px;
+    //margin-left: 1rem;
+    margin-bottom: 31px;
+}
