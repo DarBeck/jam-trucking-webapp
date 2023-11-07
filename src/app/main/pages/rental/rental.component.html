@@ -1,1 +1,124 @@
-<p>rental works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Customer Name</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.customerName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Customer Phone Number</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                placeholder="Last Name"
+                [value]="rentalData?.customerPhoneNumber"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="lastName">Employee Name</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.employeeName"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="dob">Employee Role</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.employeeRole"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="street">Truck Make</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.truckMake"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="city">Truck Model</label>
+              <input
+                type="text"
+                id="city"
+                readonly
+                class="form-control"
+                placeholder="City"
+                [value]="rentalData?.truckModel"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Price</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.price"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="zip">Rent Date</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.dateOfRent | date: 'EEEE, MMMM d, y'"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="email">Return Date</label>
+              <input
+                type="email"
+                id="email"
+                readonly
+                class="form-control"
+                placeholder="Email"
+                [value]="rentalData?.dateOfReturn | date: 'EEEE, MMMM d, y'"
+              />
+            </div>
+          </div>
+            <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Date Created</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="rentalData?.dateCreated | date: 'EEEE, MMMM d, y'"
+              />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+

@@ -19,4 +19,8 @@ export class RentalService {
   GetRentals(): Observable<Rental[]> {
     return this.http.get<Rental[]>(`${environment.apiUrl}/rental/all`);
   }
+
+  GetRental(id: number): Observable<Rental> {
+    return this.http.get<Rental>(`${environment.apiUrl}/rental/${id}`);
+  }
 }
