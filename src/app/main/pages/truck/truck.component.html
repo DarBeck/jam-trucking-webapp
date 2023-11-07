@@ -1,1 +1,164 @@
-<p>truck works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>License Number</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.license"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Make</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.make"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Color</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.color"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Model</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.model"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Type</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.type"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Engine Size</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.engineSize"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Max Capacity</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.maxCapacity"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Yeae</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.year"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label for="zip">Rental Price</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.rentalPrice | currency"
+              />
+            </div>
+          </div>
+          <div *ngIf="truckData?.type == 'Mover'" class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Max Height</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.maxHeight"
+              />
+            </div>
+          </div>
+          <div *ngIf="truckData?.type == 'Mover'" class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Seat Capacity</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.seatCap"
+              />
+            </div>
+          </div>
+          <div *ngIf="truckData?.type == 'Cargo'" class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Number of Wheels</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.wheelNum"
+              />
+            </div>
+          </div>
+          <div *ngIf="truckData?.type == 'Cargo'" class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Fuel Type</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.fuelType"
+              />
+            </div>
+          </div>
+            <div class="col-md-6 col-12">
+            <div class="form-group">
+              <label>Date Created</label>
+              <input
+                type="text"
+                readonly
+                class="form-control"
+                [value]="truckData?.dateCreated | date: 'MMMM d, y'"
+              />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+

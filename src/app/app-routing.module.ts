@@ -20,6 +20,7 @@ import { InvoicesComponent } from './main/pages/invoices/invoices.component';
 import { DepartmentComponent } from './main/pages/department/department.component';
 import { EmployeeComponent } from './main/pages/employee/employee.component';
 import { RentalComponent } from './main/pages/rental/rental.component';
+import { TruckComponent } from './main/pages/truck/truck.component';
 
 const routes: Routes = [
   {
@@ -94,6 +95,10 @@ const routes: Routes = [
       {
         path: 'rental/:id',
         component: RentalComponent,
+      },
+      {
+        path: 'truck/:id',
+        component: TruckComponent,
       },
     ],
   },

@@ -78,7 +78,7 @@
                 type="text"
                 readonly
                 class="form-control"
-                [value]="rentalData?.price"
+                [value]="rentalData?.price | currency"
               />
             </div>
           </div>
@@ -113,7 +113,7 @@
                 type="text"
                 readonly
                 class="form-control"
-                [value]="rentalData?.dateCreated | date: 'EEEE, MMMM d, y'"
+                [value]="rentalData?.dateCreated | date: 'MMMM d, y'"
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 export interface Truck {
   id: number;
-  licenceNum: number;
+  license: number;
   make: string;
   color: string;
   model: string;

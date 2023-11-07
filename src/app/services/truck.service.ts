@@ -19,4 +19,8 @@ export class TruckService {
   GetTrucks(): Observable<Truck[]> {
     return this.http.get<Truck[]>(`${environment.apiUrl}/truck/all`);
   }
+
+  GetTruck(id: number): Observable<Truck> {
+    return this.http.get<Truck>(`${environment.apiUrl}/truck/${id}`);
+  }
 }
