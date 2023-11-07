@@ -8,6 +8,7 @@ import { AddEmployeeDto } from 'src/app/models/employee';
 import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NotificationService } from 'src/app/utilities/notification.service';
+import * as md5 from 'md5';
 
 @Component({
   selector: 'app-add-employee',
@@ -78,7 +79,7 @@ export class AddEmployeeComponent implements OnInit {
       extension: this.f['extension'].value,
       departmentId: this.f['departmentId'].value,
       skillLevel: this.f['skillLevel'].value,
-      password: this.f['password'].value,
+      password: md5(this.f['password'].value),
       userDetails: userDeatils,
     };
 
