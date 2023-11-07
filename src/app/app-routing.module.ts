@@ -22,6 +22,7 @@ import { EmployeeComponent } from './main/pages/employee/employee.component';
 import { RentalComponent } from './main/pages/rental/rental.component';
 import { TruckComponent } from './main/pages/truck/truck.component';
 import { CustomerComponent } from './main/pages/customer/customer.component';
+import { InvoiceComponent } from './main/pages/invoice/invoice.component';
 
 const routes: Routes = [
   {
@@ -104,6 +105,10 @@ const routes: Routes = [
       {
         path: 'customer/:id',
         component: CustomerComponent,
+      },
+      {
+        path: 'invoice/:id',
+        component: InvoiceComponent,
       },
     ],
   },

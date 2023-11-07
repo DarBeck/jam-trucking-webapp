@@ -39,6 +39,7 @@ import { EmployeeComponent } from './main/pages/employee/employee.component';
 import { RentalComponent } from './main/pages/rental/rental.component';
 import { TruckComponent } from './main/pages/truck/truck.component';
 import { CustomerComponent } from './main/pages/customer/customer.component';
+import { InvoiceComponent } from './main/pages/invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { CustomerComponent } from './main/pages/customer/customer.component';
     RentalComponent,
     TruckComponent,
     CustomerComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,
