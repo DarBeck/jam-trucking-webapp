@@ -52,7 +52,22 @@ export class LoginComponent implements OnInit {
       (response) => {
         this.loading = false;
 
+        
+
         if (response.status == 200) {
+          let user: User = {
+            id: response.body.user.id,
+            userId: response.body.user.userId,
+            firstName: response.body.user.firstName,
+            lastName: response.body.user.lastName,
+            email: response.body.user.email,
+            isSupervisor: response.body.user.isSupervisor,
+            role: response.body.user.role,
+            token: 'Bearer ' + response.body.token,
+          };
+
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userService.updateUser(user);
           this.router.navigate(
             ['/login-mfa/' + response.body.continuationToken],
             {
