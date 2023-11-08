@@ -1,0 +1,54 @@
+<div class="container-fluid bg">
+  <div class="row">
+    <div class="col-md-12 ptb-20 mt-10">
+      <form [formGroup]="mfaForm" (ngSubmit)="onSubmit()">
+        <div class="row login_header">
+          <div class="col-12">Verify OTP</div>
+        </div>
+        <div class="row login">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="input-group form-control mfa-input-group">
+                  <span class="input-icon input-group-text mfa-input-icon">
+                    <i class="fas fa-unlock-keyhole"></i>
+                  </span>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    mask="000 000"
+                    class="form-control mfa-input"
+                    formControlName="otp"
+                    placeholder="123 456"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-lg btn-primary mt-4">
+                    <span
+                      *ngIf="loading"
+                      class="spinner-grow spinner-grow-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="ms-1" *ngIf="loading; else submit"
+                      >VERIFYING...</span
+                    >
+                    <ng-template #submit>VERIFY</ng-template>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--End Container Div-->
+

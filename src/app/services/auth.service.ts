@@ -15,4 +15,10 @@ export class AuthService {
       observe: 'response',
     });
   }
+
+  VerifyOtp(otp: number): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/auth/mfa/otp`, otp, {
+      observe: 'response',
+    });
+  }
 }

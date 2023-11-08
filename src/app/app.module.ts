@@ -40,6 +40,7 @@ import { RentalComponent } from './main/pages/rental/rental.component';
 import { TruckComponent } from './main/pages/truck/truck.component';
 import { CustomerComponent } from './main/pages/customer/customer.component';
 import { InvoiceComponent } from './main/pages/invoice/invoice.component';
+import { LoginMfaComponent } from './main/pages/login-mfa/login-mfa.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { InvoiceComponent } from './main/pages/invoice/invoice.component';
     TruckComponent,
     CustomerComponent,
     InvoiceComponent,
+    LoginMfaComponent,
   ],
   imports: [
     BrowserModule,

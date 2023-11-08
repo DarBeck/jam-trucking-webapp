@@ -15,4 +15,26 @@ export class ReportService {
       `${environment.apiUrl}/reports/company-overview`
     );
   }
+
+  GetUnassignedMechanics(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.apiUrl}/reports/mechanic/unassigned`
+    );
+  }
+
+  GetUpcomingMaintenances(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.apiUrl}/reports/maintenance/upcoming`
+    );
+  }
+
+  GetPastDueInvoices(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/reports/invoice/past-due`);
+  }
+
+  GetUpcomingRentals(): Observable<any> {
+    return this.http.get<any>(
+      `${environment.apiUrl}/reports/rental/upcoming`
+    );
+  }
 }

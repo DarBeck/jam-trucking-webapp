@@ -10,6 +10,10 @@ import { ReportService } from 'src/app/services/report.service';
 })
 export class DashboardComponent implements OnInit {
   private $warning = '#FF9F43';
+  unassignedMechanics: number = 0;
+  invoicesPastDue: number = 0;
+  upcomingRentals: number = 0;
+  upcomingMaintenances: number = 0;
 
   companyOverview: CompanyOverview | null = null;
   barChartLabels = ['July', 'August', 'September', 'October', 'November'];
@@ -91,6 +95,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.reportService.GetCompanyOverview().subscribe((data) => {
       this.companyOverview = data;
+    });
+
+    this.reportService.GetUnassignedMechanics().subscribe((data) => {
+      this.unassignedMechanics = data?.count;
+    });
+
+    this.reportService.GetUpcomingRentals().subscribe((data) => {
+      this.upcomingRentals = data?.count;
+    });
+
+    this.reportService.GetPastDueInvoices().subscribe((data) => {
+      this.invoicesPastDue = data?.count;
+    });
+
+    this.reportService.GetUpcomingMaintenances().subscribe((data) => {
+      this.upcomingMaintenances = data?.count;
     });
   }
 

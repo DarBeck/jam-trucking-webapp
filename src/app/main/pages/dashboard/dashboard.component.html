@@ -2,9 +2,9 @@
   <div class="col-lg-8 mb-3">
     <div class="row">
       <div class="col-12">
-          <div class="card card-statistics">
-              <div class="card-body statistics-body">
-              <h6 class="card-subtitle mb-2 text-muted mb-4">Company Overview</h6>
+        <div class="card card-statistics">
+          <div class="card-body statistics-body">
+            <h6 class="card-subtitle mb-2 text-muted mb-4">Company Overview</h6>
             <div class="row">
               <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
                 <div class="media">
@@ -14,7 +14,9 @@
                     </div>
                   </div>
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-0">{{companyOverview?.trucks}}</h4>
+                    <h4 class="font-weight-bolder mb-0">
+                      {{ companyOverview?.trucks }}
+                    </h4>
                     <p class="card-text font-small-3 mb-0">Trucks</p>
                   </div>
                 </div>
@@ -27,7 +29,9 @@
                     </div>
                   </div>
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-0">{{companyOverview?.customers}}</h4>
+                    <h4 class="font-weight-bolder mb-0">
+                      {{ companyOverview?.customers }}
+                    </h4>
                     <p class="card-text font-small-3 mb-0">Customers</p>
                   </div>
                 </div>
@@ -40,7 +44,9 @@
                     </div>
                   </div>
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-0">{{companyOverview?.rentals}}</h4>
+                    <h4 class="font-weight-bolder mb-0">
+                      {{ companyOverview?.rentals }}
+                    </h4>
                     <p class="card-text font-small-3 mb-0">Rentals</p>
                   </div>
                 </div>
@@ -53,7 +59,9 @@
                     </div>
                   </div>
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-0">${{companyOverview?.revenue ?? 0}}</h4>
+                    <h4 class="font-weight-bolder mb-0">
+                      ${{ companyOverview?.revenue ?? 0 }}
+                    </h4>
                     <p class="card-text font-small-3 mb-0">Revenue</p>
                   </div>
                 </div>
@@ -94,56 +102,104 @@
   <div class="col-lg-4">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-body"></div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="avatar bg-light-primary p-2 mb-2">
+              <div class="avatar-content">
+                <i class="fas fa-user-clock fa-xl"></i>
+              </div>
+            </div>
+            <div class="media-body my-auto">
+              <h4 class="font-weight-bolder mb-0">
+                {{ unassignedMechanics }}
+              </h4>
+              <p class="card-text font-small-3 mb-0">Unassigned Mechanics</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-body"></div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="avatar bg-light-danger p-2 mb-2">
+              <div class="avatar-content">
+                <i class="fas fa-toolbox fa-xl"></i>
+              </div>
+            </div>
+            <div class="media-body my-auto">
+              <h4 class="font-weight-bolder mb-0">
+                {{ upcomingMaintenances }}
+              </h4>
+              <p class="card-text font-small-3 mb-0">Upcoming Maintenances</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-body"></div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="avatar bg-light-info p-2 mb-2">
+              <div class="avatar-content">
+                <i class="fas fa-calendar-days fa-xl"></i>
+              </div>
+            </div>
+            <div class="media-body my-auto">
+              <h4 class="font-weight-bolder mb-0">
+                {{ upcomingRentals }}
+              </h4>
+              <p class="card-text font-small-3 mb-0">Upcoming Rentals</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-body"></div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="avatar bg-light-success p-2 mb-2">
+              <div class="avatar-content">
+                <i class="fas fa-file-invoice-dollar fa-xl"></i>
+              </div>
+            </div>
+            <div class="media-body my-auto">
+              <h4 class="font-weight-bolder mb-0">
+                {{ invoicesPastDue }}
+              </h4>
+              <p class="card-text font-small-3 mb-0">Invoices Past Due</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-12 mb-3">
         <div class="card">
-            <div class="card-header d-flex flex-column align-items-start pb-0">
-              <div class="avatar bg-light-success p-2 m-0">
-                <div class="avatar-content">
-                  <i class="fas fa-dollar-sign fa-xl"></i>
-                </div>
+          <div class="card-header d-flex flex-column align-items-start pb-0">
+            <div class="avatar bg-light-success p-2 m-0">
+              <div class="avatar-content">
+                <i class="fas fa-dollar-sign fa-xl"></i>
               </div>
-              <h2 class="font-weight-bolder mt-1">$2.3m</h2>
-              <p class="mb-0 card-subtitle">Profit</p>
             </div>
+            <h2 class="font-weight-bolder mt-1">$2.3m</h2>
+            <p class="mb-0 card-subtitle">Profit</p>
+          </div>
           <div class="card-body p-0" #orderChartoptionsRef>
             <apx-chart
-                [series]="profitChart.series"
-                [chart]="{
-                  height: 100,
-                  width: orderChartoptionsRef.offsetWidth,
-                  type: 'area',
-                  toolbar: {
-                    show: false
-                  },
-                  sparkline: {
-                    enabled: true
-                  }
-                }"
-                [stroke]="profitChart.stroke"
-                [fill]="profitChart.fill"
-                [tooltip]="profitChart.tooltip"
-                [colors]="profitChart.colors"
-                [dataLabels]="profitChart.dataLabels"
-              ></apx-chart>
+              [series]="profitChart.series"
+              [chart]="{
+                height: 100,
+                width: orderChartoptionsRef.offsetWidth,
+                type: 'area',
+                toolbar: {
+                  show: false
+                },
+                sparkline: {
+                  enabled: true
+                }
+              }"
+              [stroke]="profitChart.stroke"
+              [fill]="profitChart.fill"
+              [tooltip]="profitChart.tooltip"
+              [colors]="profitChart.colors"
+              [dataLabels]="profitChart.dataLabels"
+            ></apx-chart>
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@ import { RentalComponent } from './main/pages/rental/rental.component';
 import { TruckComponent } from './main/pages/truck/truck.component';
 import { CustomerComponent } from './main/pages/customer/customer.component';
 import { InvoiceComponent } from './main/pages/invoice/invoice.component';
+import { LoginMfaComponent } from './main/pages/login-mfa/login-mfa.component';
 
 const routes: Routes = [
   {
@@ -115,6 +116,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'login-mfa',
+    component: LoginMfaComponent,
   },
 ];
 
