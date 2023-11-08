@@ -61,7 +61,11 @@
     <ngx-datatable-column
     name="Reference Number"
     prop="referenceNumber"
-  ></ngx-datatable-column>
+  >
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <a routerLink="/invoice/{{row.referenceNumber}}">{{ row.referenceNumber }}</a>
+    </ng-template>
+</ngx-datatable-column>
   <ngx-datatable-column
     name="Status"
     prop="status"

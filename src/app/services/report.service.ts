@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CompanyOverview, CompanyRevenue } from '../models/report';
+import { CompanyOverview, CompanyRevenue, TruckRevenue } from '../models/report';
 
 @Injectable({
   providedIn: 'root',
@@ -36,9 +36,21 @@ export class ReportService {
     return this.http.get<any>(`${environment.apiUrl}/reports/rental/upcoming`);
   }
 
-  GetCompanyRevenue(since: string, until: string): Observable<CompanyRevenue[]> {
+  GetCompanyRevenue(
+    since: string,
+    until: string
+  ): Observable<CompanyRevenue[]> {
     return this.http.get<CompanyRevenue[]>(
       `${environment.apiUrl}/reports/company/revenue?since=${since}&until=${until}`
+    );
+  }
+
+  GetTruckRevenue(
+    since: string,
+    until: string
+  ): Observable<TruckRevenue[]> {
+    return this.http.get<TruckRevenue[]>(
+      `${environment.apiUrl}/reports/truck/revenue?since=${since}&until=${until}`
     );
   }
 }

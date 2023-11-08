@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ApexChartOptions } from 'src/app/models/global';
-import { CompanyOverview, CompanyRevenue } from 'src/app/models/report';
+import { CompanyOverview, CompanyRevenue, TruckRevenue } from 'src/app/models/report';
 import { ReportService } from 'src/app/services/report.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   upcomingRentals: number = 0;
   upcomingMaintenances: number = 0;
   companyRevenue: CompanyRevenue[] = [];
+  truckRevenue: TruckRevenue[] = [];
 
   companyOverview: CompanyOverview | null = null;
   barChartLabels: string[] = [];
@@ -152,6 +153,12 @@ export class DashboardComponent implements OnInit {
         }
 
         this.chart?.update();
+      });
+
+    this.reportService
+      .GetTruckRevenue(since.toISOString(), until.toISOString())
+      .subscribe((data) => {
+        this.truckRevenue = data;
       });
   }
 

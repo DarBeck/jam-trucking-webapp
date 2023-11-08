@@ -8,10 +8,10 @@ export interface AddRentalDto {
 
 export interface Rental {
   id: number;
-  customerId: string;
+  customerId: number;
   customerName: string;
   customerPhoneNumber: string;
-  employeeId: string;
+  employeeId: number;
   employeeName: string;
   employeeRole: string;
   employeeEmail: string;

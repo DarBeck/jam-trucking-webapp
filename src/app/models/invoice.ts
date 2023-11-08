@@ -8,3 +8,8 @@ export interface Invoice {
   rentalId: number;
   datePaid: string;
 }
+
+export interface PayInvoiceDto {
+  paymentDate: string;
+  invoiceId: number;
+}

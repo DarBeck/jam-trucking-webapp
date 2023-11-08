@@ -14,15 +14,15 @@
           <div>
             <h4 class="invoice-title">
               Invoice
-              <span class="invoice-number">#7656</span>
+              <span class="invoice-number">#{{invoiceData?.referenceNumber}}</span>
             </h4>
             <div class="invoice-date-wrapper">
               <p class="invoice-date-title">Date Issued:</p>
-              <p class="invoice-date">17/09/2023</p>
+              <p class="invoice-date">{{invoiceData?.date | date: 'yyyy-MM-dd'}}</p>
             </div>
             <div class="invoice-date-wrapper">
               <p class="invoice-date-title">Due Date:</p>
-              <p class="invoice-date">17/09/2023</p>
+              <p class="invoice-date">{{invoiceData?.dueDate | date: 'yyyy-MM-dd'}}</p>
             </div>
           </div>
         </div>
@@ -30,10 +30,10 @@
         <div class="row">
           <div class="col-12">
             <h6 class="mb-2">Invoice To:</h6>
-            <h6 class="mb-1">John Doe</h6>
-            <p class="card-text mb-1">50 Main Street</p>
-            <p class="card-text mb-1">Montego Bay, St. James, 00000</p>
-            <p class="card-text mb-1">877-444-3333</p>
+            <h6 class="mb-1">{{rentalData?.customerName}}</h6>
+            <p class="card-text mb-1">{{customerData?.street}}</p>
+            <p class="card-text mb-1">{{customerData?.city}}, {{customerData?.state}}, {{customerData?.zip}}</p>
+            <p class="card-text mb-1">{{rentalData?.customerPhoneNumber}}</p>
           </div>
         </div>
         <div class="row mt-3">
@@ -52,17 +52,17 @@
                   <tr>
                     <td class="py-2">
                       <p class="card-text font-weight-bold mb-25">
-                        Mover Truck #828848 - 17/09/2023 - 20/09/2023
-                      </p>
+                         {{rentalData?.truckMake}} {{rentalData?.truckModel}}: {{rentalData?.dateOfRent | date: 'dd/MM/yyyy'}} - {{rentalData?.dateOfReturn | date: 'dd/MM/yyyy'}}
+                      </p>  
                     </td>
                     <td class="py-2">
-                      <span class="font-weight-bold">$60.00</span>
+                      <span class="font-weight-bold">${{rentalData?.price}}</span>
                     </td>
                     <td class="py-2">
-                      <span class="font-weight-bold">30</span>
+                      <span class="font-weight-bold">{{numberOfDays}}</span>
                     </td>
                     <td class="py-2">
-                      <span class="font-weight-bold">$1,800.00</span>
+                      <span class="font-weight-bold">{{subTotal | currency}}</span>
                     </td>
                   </tr>
                 </tbody>
@@ -74,14 +74,14 @@
           <div class="col-md-6 col-12">
             <p class="card-text mb-0">
               <span class="font-weight-bold">Salesperson:</span>
-              <span class="ms-3">Alfie Solomons</span>
+              <span class="ms-3">{{rentalData?.employeeName}}</span>
             </p>
           </div>
           <div class="col-md-6 col-12 d-flex justify-content-end order-md-2 order-1">
             <div class="invoice-total-wrapper">
               <div class="invoice-total-item">
                 <p class="invoice-total-title">Subtotal:</p>
-                <p class="invoice-total-amount">$1800</p>
+                <p class="invoice-total-amount">{{subTotal | currency}}</p>
               </div>
               <div class="invoice-total-item">
                 <p class="invoice-total-title">Discount:</p>
@@ -94,7 +94,7 @@
               <hr class="my-50" />
               <div class="invoice-total-item">
                 <p class="invoice-total-title">Total:</p>
-                <p class="invoice-total-amount">$2070</p>
+                <p class="invoice-total-amount">{{total | currency}}</p>
               </div>
             </div>
           </div>
@@ -104,7 +104,49 @@
   </div>
   <div class="col-md-3 col-12">
     <div class="card">
-      <div class="card-body"></div>
+      <div class="card-body">
+        <form *ngIf="invoiceData?.status != 'Paid'" class="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+              <label for="paymentDate">Payment Date</label>
+              <input
+                type="date"
+                id="paymentDate"
+                class="form-control"
+                formControlName="paymentDate"
+              />
+            </div>
+            </div>
+            <div class="col-12">
+            <button
+              type="submit"
+              [disabled]="!paymentForm.valid || loading"
+              rippleEffect
+              class="btn btn-primary me-3"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              <span class="ms-1" *ngIf="loading; else submit">
+                Submitting...</span
+              >
+              <ng-template #submit>Pay Invoice</ng-template>
+            </button>
+          </div>
+          </div>
+        </form>
+        <div *ngIf="invoiceData?.status == 'Paid'" class="alert alert-success" role="alert">
+          <div class="alert-body">
+            <i data-feather="check" class="me-50"></i>
+            <span>
+              This invoice has been paid.
+            </span>
+          </div>
+      </div>
     </div>
   </div>
 </div>

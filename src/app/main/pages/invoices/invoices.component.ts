@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { Invoice } from 'src/app/models/invoice';
@@ -9,7 +9,7 @@ import { InvoiceService } from 'src/app/services/invoice.service';
   templateUrl: './invoices.component.html',
   styleUrls: ['./invoices.component.scss'],
 })
-export class InvoicesComponent {
+export class InvoicesComponent implements OnInit {
   invoiceQueryForm: UntypedFormGroup;
   invoices: Invoice[] = [];
   loading: boolean = false;
@@ -24,6 +24,13 @@ export class InvoicesComponent {
     this.invoiceQueryForm = this.formBuilder.group({
       since: ['', Validators.required],
       until: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.invoiceService.GetAllInvoices().subscribe((data) => {
+      this.invoices = data;
+      this.invoicesLoading = false;
     });
   }
 
