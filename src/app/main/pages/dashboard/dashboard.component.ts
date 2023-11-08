@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts';
 import { ApexChartOptions } from 'src/app/models/global';
 import { CompanyOverview, CompanyRevenue } from 'src/app/models/report';
 import { ReportService } from 'src/app/services/report.service';
@@ -9,6 +10,7 @@ import { ReportService } from 'src/app/services/report.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   private $warning = '#FF9F43';
   unassignedMechanics: number = 0;
   invoicesPastDue: number = 0;
@@ -17,14 +19,15 @@ export class DashboardComponent implements OnInit {
   companyRevenue: CompanyRevenue[] = [];
 
   companyOverview: CompanyOverview | null = null;
-  barChartLabels = ['July', 'August', 'September', 'October', 'November'];
+  barChartLabels: string[] = [];
+  monthlyRevenue: number[] = Array.from({ length: 6 }, () => 0);
   profitChart: ApexChartOptions;
   revenueChart = {
     chartType: 'bar',
     datasets: [
       {
-        data: [560004, 672222, 673889, 988776, 1588899],
-        backgroundColor: this.barChartLabels.map(() =>
+        data: this.monthlyRevenue,
+        backgroundColor: Array.from({ length: 6 }, () =>
           this.generateRandomColor()
         ),
       },
@@ -117,11 +120,39 @@ export class DashboardComponent implements OnInit {
     const since = new Date();
     const until = new Date(since);
     until.setMonth(until.getMonth() - 5);
- 
 
-    this.reportService.GetCompanyRevenue(since.toISOString(), until.toISOString()).subscribe((data) => {
-      this.companyRevenue = data;
-    });
+    for (let i = 5; i >= 0; i--) {
+      const date = new Date(since);
+      date.setMonth(since.getMonth() - i);
+      const month = date.toLocaleString('default', { month: 'long' });
+      const year = date.getFullYear();
+      if (year !== since.getFullYear()) {
+        this.barChartLabels.push(`${month} ${year}`);
+      } else {
+        this.barChartLabels.push(`${month}`);
+      }
+    }
+
+    this.reportService
+      .GetCompanyRevenue(since.toISOString(), until.toISOString())
+      .subscribe((data) => {
+        this.companyRevenue = data;
+        const today = new Date();
+        for (const item of data) {
+          const itemDate = new Date(item.year, item.month - 1); // Subtract 1 from month to match JavaScript Date object
+          const monthsAgo =
+            (today.getMonth() -
+              itemDate.getMonth() +
+              12 * (today.getFullYear() - itemDate.getFullYear())) %
+            12;
+
+          if (monthsAgo < 6) {
+            this.monthlyRevenue[5 - monthsAgo] = item.total;
+          }
+        }
+
+        this.chart?.update();
+      });
   }
 
   generateRandomColor() {
