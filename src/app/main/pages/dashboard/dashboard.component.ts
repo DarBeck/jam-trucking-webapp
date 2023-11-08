@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ColumnMode } from '@swimlane/ngx-datatable';
 import { BaseChartDirective } from 'ng2-charts';
 import { ApexChartOptions } from 'src/app/models/global';
-import { CompanyOverview, CompanyRevenue, TruckRevenue } from 'src/app/models/report';
+import { CompanyOverview, CompanyRevenue, TruckReport, TruckRevenue } from 'src/app/models/report';
+import { Truck } from 'src/app/models/truck';
 import { ReportService } from 'src/app/services/report.service';
 
 @Component({
@@ -18,6 +20,9 @@ export class DashboardComponent implements OnInit {
   upcomingMaintenances: number = 0;
   companyRevenue: CompanyRevenue[] = [];
   truckRevenue: TruckRevenue[] = [];
+  truckReport: TruckReport | null = null;
+  trucksLoading: boolean = true;
+  ColumnMode = ColumnMode;
 
   companyOverview: CompanyOverview | null = null;
   barChartLabels: string[] = [];
@@ -158,7 +163,10 @@ export class DashboardComponent implements OnInit {
     this.reportService
       .GetTruckRevenue(since.toISOString(), until.toISOString())
       .subscribe((data) => {
-        this.truckRevenue = data;
+        this.truckReport = data;
+        this.truckRevenue = data.trucks
+          .sort((a, b) => b.revenue - a.revenue)
+          .slice(0, 5);
       });
   }
 

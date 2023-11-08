@@ -1,3 +1,5 @@
+import { Truck } from "./truck";
+
 export interface CompanyOverview {
   trucks: number;
   customers: number;
@@ -12,8 +14,11 @@ export interface CompanyRevenue {
 }
 
 export interface TruckRevenue {
-  license: number;
-  total: number;
-  year: number;
-  month: number;
+  truck: Truck;
+  revenue: number;
+}
+
+export interface TruckReport {
+  trucks: TruckRevenue[];
+  count: number;
 }

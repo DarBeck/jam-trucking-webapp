@@ -73,7 +73,9 @@
       <div class="col-12 mt-3">
         <div class="card">
           <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted mb-4">Revenue From Last 6 Months</h6>
+            <h6 class="card-subtitle mb-2 text-muted mb-4">
+              Revenue From Last 6 Months
+            </h6>
             <div>
               <canvas
                 baseChart
@@ -94,6 +96,59 @@
         <div class="card">
           <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted">Top 5 Trucks</h6>
+            <ngx-datatable
+              #table
+              class="bootstrap core-bootstrap"
+              [headerHeight]="40"
+              [rowHeight]="58"
+              [footerHeight]="0"
+              rowHeight="auto"
+              [limit]="5"
+              [rows]="truckRevenue"
+              [scrollbarH]="true"
+              [columnMode]="ColumnMode.force"
+              [loadingIndicator]="trucksLoading"
+            >
+            <ngx-datatable-footer>
+              <ng-template ngx-datatable-footer-template>
+
+              </ng-template></ngx-datatable-footer>
+              <ngx-datatable-column [sortable]="false" name="Liscense Number" prop="license">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a
+                    routerLink="/truck/{{ row.truck.license }}"
+                    class="font-medium-1 d-block"
+                    >{{ row.truck.license }}</a
+                  >
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column
+                name="Make"
+                prop="truck.make"
+                [sortable]="false"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Model"
+                prop="truck.model"
+                [sortable]="false"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Type"
+                prop="truck.type"
+                [sortable]="false"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Revenue"
+                prop="revenue"
+                [sortable]="false"
+              >
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span class="font-medium-1 d-block">{{
+                  row.revenue | currency
+                }}</span>
+              </ng-template>
+            </ngx-datatable-column>
+            </ngx-datatable>
           </div>
         </div>
       </div>
@@ -177,7 +232,9 @@
                 <i class="fas fa-dollar-sign fa-xl"></i>
               </div>
             </div>
-            <h2 class="font-weight-bolder mt-1">{{companyOverview?.revenue | currency}}</h2>
+            <h2 class="font-weight-bolder mt-1">
+              {{ companyOverview?.revenue | currency }}
+            </h2>
             <p class="mb-0 card-subtitle">Profit</p>
           </div>
           <div class="card-body p-0" #orderChartoptionsRef>
