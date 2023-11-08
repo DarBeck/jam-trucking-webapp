@@ -45,3 +45,99 @@
 .avatar img {
     border-radius: 50%;
 }
+
+.avatar [class*=avatar-status-] {
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #fff;
+}
+
+.avatar .avatar-status-online {
+    background-color: #28c76f;
+}
+
+.dropup, .dropright, .dropdown, .dropleft {
+    position: relative;
+}
+
+.dropdown-menu {
+    top: 41px !important;
+}
+
+.dropdown-menu {
+    width: 12rem;
+    margin-top: 10px;
+}
+
+.dropdown-menu {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-name: slideIn;
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    float: none;
+}
+
+.dropdown-menu[x-placement^=top], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left] {
+    right: auto;
+    bottom: auto;
+}
+
+.dropdown-menu-right {
+    right: 0 !important;
+    left: auto !important;
+}
+
+.dropdown-menu {
+    transform: none;
+}
+
+.dropdown-menu {
+    border-radius: 0.358rem;
+    transform: scale(1, 0);
+    box-shadow: 0 5px 25px rgba(34, 41, 47, 0.1);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0 0 0;
+    font-size: 1rem;
+    color: #6e6b7b;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(34, 41, 47, 0.05);
+    border-radius: 0.358rem;
+}
+
+.dropdown-menu .dropdown-item {
+    width: auto;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.65rem 1.28rem;
+    clear: both;
+    font-weight: 400;
+    color: #6e6b7b;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
