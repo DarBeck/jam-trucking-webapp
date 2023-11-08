@@ -53,9 +53,12 @@ export class LoginComponent implements OnInit {
         this.loading = false;
 
         if (response.status == 200) {
-          this.router.navigate(['/login-mfa/' + response.body.continuationTokens], {
-            queryParams: { returnUrl: this.returnUrl },
-          });
+          this.router.navigate(
+            ['/login-mfa/' + response.body.continuationToken],
+            {
+              queryParams: { returnUrl: this.returnUrl },
+            }
+          );
         }
       },
       (error: any) => {
