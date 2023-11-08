@@ -15,3 +15,8 @@ export interface User {
   isSupervisor: boolean;
   token: string;
 }
+
+export interface VerifyToken {
+  continuationToken: string;
+  otp: string;
+}

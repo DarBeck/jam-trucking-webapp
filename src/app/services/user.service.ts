@@ -22,7 +22,7 @@ export class UserService {
     return this.userSubject.value;
   }
 
-  updateUser(user: User) {
+  updateUser(user: User | null) {
     this.userSubject.next(user);
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { User, VerifyToken } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { NotificationService } from 'src/app/utilities/notification.service';
@@ -15,6 +15,7 @@ export class LoginMfaComponent implements OnInit {
   mfaForm: UntypedFormGroup;
   loading: boolean = false;
   returnUrl: string = '';
+  continuationToken: string = '';
 
   constructor(
     private router: Router,
@@ -30,6 +31,7 @@ export class LoginMfaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.continuationToken = this.route.snapshot.params['code'] || '';
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -37,9 +39,12 @@ export class LoginMfaComponent implements OnInit {
     console.log('Attempting to log in');
     this.loading = true;
 
-    let otp = this.mfaForm.get('otp')?.value;
+    let verification: VerifyToken = {
+      continuationToken: this.continuationToken,
+      otp: this.mfaForm.get('otp')?.value,
+    };
 
-    this.authService.VerifyOtp(otp).subscribe(
+    this.authService.VerifyOtp(verification).subscribe(
       (response) => {
         this.loading = false;
 

@@ -118,7 +118,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'login-mfa',
+    path: 'login-mfa/:code',
     component: LoginMfaComponent,
   },
 ];
