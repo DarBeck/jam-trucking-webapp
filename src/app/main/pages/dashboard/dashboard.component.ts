@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApexChartOptions } from 'src/app/models/global';
-import { CompanyOverview } from 'src/app/models/report';
+import { CompanyOverview, CompanyRevenue } from 'src/app/models/report';
 import { ReportService } from 'src/app/services/report.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   invoicesPastDue: number = 0;
   upcomingRentals: number = 0;
   upcomingMaintenances: number = 0;
+  companyRevenue: CompanyRevenue[] = [];
 
   companyOverview: CompanyOverview | null = null;
   barChartLabels = ['July', 'August', 'September', 'October', 'November'];
@@ -111,6 +112,15 @@ export class DashboardComponent implements OnInit {
 
     this.reportService.GetUpcomingMaintenances().subscribe((data) => {
       this.upcomingMaintenances = data?.count;
+    });
+
+    const since = new Date();
+    const until = new Date(since);
+    until.setMonth(until.getMonth() - 5);
+ 
+
+    this.reportService.GetCompanyRevenue(since.toISOString(), until.toISOString()).subscribe((data) => {
+      this.companyRevenue = data;
     });
   }
 
