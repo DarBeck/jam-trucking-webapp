@@ -14,5 +14,36 @@
       <i class="fas fa-power-off me-1"></i>
       <span class="d-none d-sm-inline-block">Logout</span>
     </button>
+    <ul class="nav navbar-nav align-items-center ml-auto">
+      <li ngbDropdown class="nav-item dropdown-user">
+      <a
+        class="nav-link dropdown-toggle dropdown-user-link"
+        id="dropdown-user"
+        ngbDropdownToggle
+        id="navbarUserDropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <ng-container *ngIf="user != null">
+          <div class="user-nav d-sm-flex d-none">
+            <span class="user-name font-weight-bolder"
+              >{{ user?.firstName }} {{ user?.lastName }}</span
+            ><span class="user-status">{{ user?.role }}</span>
+          </div>
+          <span class="avatar"
+            ><img
+              class="round"
+              src="{{ userImage }}"
+              alt="avatar"
+              height="40"
+              width="40" /><span class="avatar-status-online"></span
+          ></span>
+        </ng-container>
+      </a>
+      <div ngbDropdownMenu aria-labelledby="navbarUserDropdown" class="dropdown-menu dropdown-menu-right">
+        <a ngbDropdownItem (click)="logout()">Logout</a>
+      </div>
+    </li>
+    </ul>
   </div>
 </nav>

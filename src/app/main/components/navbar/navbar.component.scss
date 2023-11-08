@@ -12,3 +12,36 @@
     background: white;
     height: 70px;
 }
+
+.dropdown-user-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #6e6b7b;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.user-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    float: left;
+    margin-right: 0.8rem;
+}
+
+// .user-name {
+//     display: inline-block;
+//     margin-bottom: 0.435rem;
+//     margin-left: 0.2rem;
+// }
+
+.user-status {
+    font-size: smaller;
+}
+
+.avatar img {
+    border-radius: 50%;
+}
