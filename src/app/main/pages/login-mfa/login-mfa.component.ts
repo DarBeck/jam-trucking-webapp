@@ -70,15 +70,15 @@ export class LoginMfaComponent implements OnInit {
           this.loading = false;
           console.log(error);
           this.notifyService.showError(
-            'Your Email or Password is Incorrect',
-            'Invalid Credentials'
+            'Verification Code is Incorrect',
+            'Invalid Code'
           );
         } else {
           this.loading = false;
           console.log(error);
           this.notifyService.showError(
-            'Your Email or Password is Incorrect',
-            'Invalid Credentials'
+            'Verification Code is Incorrect',
+            'Invalid Code'
           );
         }
       }
